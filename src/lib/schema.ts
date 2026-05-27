@@ -1,0 +1,120 @@
+import { siteConfig } from './site';
+import type { MenuItem } from '@/types/menu';
+
+export function getRestaurantSchema(rating?: { value: number; count: number }) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Restaurant',
+    '@id': `${siteConfig.url}/#restaurant`,
+    name: siteConfig.name,
+    url: siteConfig.url,
+    telephone: siteConfig.phone,
+    image: [`${siteConfig.url}${siteConfig.ogImage}`],
+    priceRange: '₺₺',
+    servesCuisine: ['Türk Mutfağı', 'Kebap', 'Lahmacun', 'Pide', 'Dürüm'],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.district,
+      addressRegion: siteConfig.address.city,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.country,
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: siteConfig.address.coordinates.lat,
+      longitude: siteConfig.address.coordinates.lng,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: siteConfig.hours.open,
+        closes: siteConfig.hours.close,
+      },
+    ],
+    menu: `${siteConfig.url}/menu`,
+    acceptsReservations: 'True',
+    hasMap: siteConfig.maps.directUrl,
+    sameAs: [siteConfig.social.instagram, siteConfig.social.facebook].filter(Boolean),
+  };
+
+  if (rating && rating.count > 0) {
+    schema.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: rating.value,
+      reviewCount: rating.count,
+      bestRating: '5',
+      worstRating: '1',
+    };
+  }
+
+  return schema;
+}
+
+export function getMenuItemSchema(item: MenuItem, category: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MenuItem',
+    name: item.name,
+    description: item.longDesc || item.desc,
+    image: item.image ? `${siteConfig.url}${item.image}` : `${siteConfig.url}${siteConfig.ogImage}`,
+    offers: {
+      '@type': 'Offer',
+      price: item.price,
+      priceCurrency: 'TRY',
+      availability: 'https://schema.org/InStock',
+    },
+    menuAddOn: category,
+  };
+}
+
+export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${siteConfig.url}${item.url}`,
+    })),
+  };
+}
+
+export function getFAQSchema(faqs: Array<{ q: string; a: string }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  };
+}
+
+export function getBlogPostingSchema(post: {
+  title: string;
+  description: string;
+  slug: string;
+  publishedAt: string;
+  coverImage?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    url: `${siteConfig.url}/blog/${post.slug}`,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    image: post.coverImage ? `${siteConfig.url}${post.coverImage}` : `${siteConfig.url}${siteConfig.ogImage}`,
+    author: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.url },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      logo: { '@type': 'ImageObject', url: `${siteConfig.url}/logo.png` },
+    },
+  };
+}
