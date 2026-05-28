@@ -7,7 +7,7 @@ export function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp ile iletişime geçin"
-      className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_16px_rgba(37,211,102,0.4)] transition-all hover:scale-110 hover:shadow-[0_6px_24px_rgba(37,211,102,0.6)] md:bottom-6 md:right-6 md:h-16 md:w-16"
+      className="fixed bottom-6 right-6 z-50 hidden h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_4px_16px_rgba(37,211,102,0.4)] transition-transform hover:scale-110 lg:flex"
     >
       <svg
         viewBox="0 0 24 24"

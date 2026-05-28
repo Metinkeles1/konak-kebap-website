@@ -9,22 +9,23 @@ import { cn } from '@/lib/utils';
 
 export function AboutSummary() {
   return (
-    <section className="relative py-14 md:py-28 px-4 md:px-8 bg-surface">
+    <section className="relative py-14 md:py-28 xl:py-36 px-4 md:px-8 bg-surface">
       <div className="mx-auto max-w-360">
         <div className="mb-12 md:mb-16 max-w-2xl">
-          <p className="kicker mb-3">Biz Kimiz</p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight leading-[1.05]">
+          <p className="kicker mb-4">Biz Kimiz</p>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground tracking-tight leading-[1.05]">
             Sancaktepe&apos;de <span className="italic text-gold">tutkulu</span> bir kebap dükkanı.
           </h2>
+          <div className="h-px w-16 bg-gold/60 mt-6" />
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:gap-5 xl:gap-6">
           {/* Big photo - 2x2 */}
           <BlurFade delay={0} inView className="md:col-span-2 md:row-span-2 min-h-72 md:min-h-105">
             <div className="relative h-full rounded-2xl overflow-hidden border border-border bg-bg">
               <Image
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=90&auto=format&fit=crop"
+                src="/images/mekan/ic-mekan.jpg"
                 alt="Efendi Usta Konak Kebap iç mekan"
                 fill
                 sizes="(max-width: 768px) 100vw, 60vw"

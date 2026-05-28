@@ -34,7 +34,7 @@ export function OrderPlatforms({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <section className="relative py-16 md:py-20 px-4 md:px-8">
+    <section className="relative py-16 md:py-24 px-4 md:px-8">
       <div className="mx-auto max-w-5xl">
         <SectionTitle kicker="Online Sipariş" title="Sevdiğiniz Platformdan" />
         <div className="grid gap-4 mt-10 sm:grid-cols-2 md:grid-cols-3">

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Flame } from 'lucide-react';
 import { BlurFade } from '@/components/magicui/blur-fade';
+import { DishPlaceholder } from '@/components/shared/dish-placeholder';
 import { buttonVariants } from '@/components/ui/button';
 import { featuredItems, getMenuItemBySlug } from '@/lib/menu';
 import { cn } from '@/lib/utils';
@@ -12,15 +13,16 @@ export function FeaturedMenu() {
     .filter((item): item is NonNullable<ReturnType<typeof getMenuItemBySlug>> => Boolean(item));
 
   return (
-    <section className="relative py-14 md:py-28 px-4 md:px-8">
+    <section className="relative py-14 md:py-28 xl:py-36 px-4 md:px-8">
       <div className="mx-auto max-w-360">
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <div>
-            <p className="kicker mb-3">Popüler Lezzetler</p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground tracking-tight leading-[1.05]">
+            <p className="kicker mb-4">Popüler Lezzetler</p>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground tracking-tight leading-[1.05]">
               Bizden <span className="italic text-gold">tavsiye</span>
             </h2>
+            <div className="h-px w-16 bg-gold/60 mt-6" />
           </div>
           <Link
             href="/menu"
@@ -32,7 +34,7 @@ export function FeaturedMenu() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 xl:gap-8">
           {items.map((item, i) => (
             <BlurFade key={item.slug} delay={0.05 * i} inView>
               <Link
@@ -45,11 +47,12 @@ export function FeaturedMenu() {
                       src={item.image}
                       alt={`${item.name} - Efendi Usta Konak Kebap`}
                       fill
+                      priority={i === 0}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover will-change-transform group-hover:scale-105 transition-transform duration-700"
                     />
                   ) : (
-                    <div className="absolute inset-0 bg-linear-to-br from-gold-light/30 via-gold-dim/20 to-foreground/10" />
+                    <DishPlaceholder name={item.name} />
                   )}
                   {/* Badges */}
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex flex-col gap-1.5">
@@ -59,7 +62,7 @@ export function FeaturedMenu() {
                       </span>
                     )}
                     {item.popular && !item.badge && (
-                      <span className="bg-bg/95 backdrop-blur text-foreground text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full font-semibold inline-flex items-center gap-1">
+                      <span className="bg-bg/95 text-foreground text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full font-semibold inline-flex items-center gap-1">
                         🔥 Çok satan
                       </span>
                     )}
@@ -80,10 +83,10 @@ export function FeaturedMenu() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-display text-sm sm:text-xl text-foreground group-hover:text-gold transition-colors leading-tight">
+                  <h3 className="font-display text-sm sm:text-xl xl:text-2xl text-foreground group-hover:text-gold transition-colors leading-tight">
                     {item.name}
                   </h3>
-                  <p className="hidden sm:block text-sm text-muted-foreground mt-1 line-clamp-1">{item.desc}</p>
+                  <p className="hidden sm:block text-sm xl:text-base text-muted-foreground mt-1 line-clamp-1">{item.desc}</p>
                 </div>
               </Link>
             </BlurFade>

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Flame } from 'lucide-react';
 import { menuData } from '@/lib/menu';
+import { DishPlaceholder } from '@/components/shared/dish-placeholder';
 import { cn } from '@/lib/utils';
 
 const categories = Object.keys(menuData) as Array<keyof typeof menuData>;
@@ -35,7 +36,7 @@ export function MenuTabs() {
   return (
     <div>
       {/* Sticky tab bar */}
-      <div className="sticky top-16 md:top-20 z-30 bg-background/95 backdrop-blur-md border-b border-border -mx-4 md:-mx-8 px-4 md:px-8 py-4 mb-10">
+      <div className="sticky top-16 md:top-20 z-30 bg-background/95 backdrop-blur-sm border-b border-border -mx-4 md:-mx-8 px-4 md:px-8 py-4 mb-10">
         <nav className="flex gap-2 overflow-x-auto scrollbar-none scroll-fade-x">
           {categories.map((cat) => (
             <button
@@ -64,7 +65,7 @@ export function MenuTabs() {
         >
           <h2 className="font-display text-3xl md:text-4xl text-gold mb-8">{active}</h2>
           <div className="grid gap-4 md:grid-cols-2">
-            {items.map((item) => (
+            {items.map((item, i) => (
               <Link
                 key={item.slug}
                 href={`/menu/${item.slug}`}
@@ -76,12 +77,15 @@ export function MenuTabs() {
                       src={item.image}
                       alt={`${item.name} - Sancaktepe`}
                       fill
+                      priority={i < 2}
                       sizes="(max-width: 640px) 96px, 112px"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 ) : (
-                  <div className="h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-md bg-linear-to-br from-gold-dim/30 via-ember/20 to-bg" />
+                  <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-md overflow-hidden">
+                    <DishPlaceholder name={item.name} showName={false} />
+                  </div>
                 )}
                 <div className="flex-1 min-w-0 py-1">
                   <div className="flex items-start gap-2">

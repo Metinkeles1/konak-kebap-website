@@ -6,15 +6,12 @@ import { AboutSummary } from '@/components/sections/about-summary';
 import { GoogleReviews } from '@/components/sections/google-reviews';
 import { FAQ } from '@/components/sections/faq';
 import { ContactMap } from '@/components/sections/contact-map';
-import { getGoogleReviews } from '@/lib/google-reviews';
 
-export default async function HomePage() {
-  const reviews = await getGoogleReviews();
-
+export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar rating={reviews?.rating} reviewCount={reviews?.user_ratings_total} />
+      <TrustBar />
       <FeaturedMenu />
       <OrderSection />
       <AboutSummary />

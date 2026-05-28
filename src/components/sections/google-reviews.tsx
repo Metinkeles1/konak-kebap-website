@@ -11,7 +11,7 @@ export async function GoogleReviews() {
   const reviews = data.reviews.slice(0, 5);
 
   return (
-    <section className="py-14 md:py-28 px-4 md:px-8 overflow-hidden">
+    <section className="py-14 md:py-28 xl:py-36 px-4 md:px-8 overflow-hidden">
       <div className="mx-auto max-w-360">
         <SectionTitle
           kicker="Müşteri Yorumları"

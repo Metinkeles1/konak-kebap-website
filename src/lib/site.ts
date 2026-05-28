@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'Konak Kebap',
   description:
     "Sancaktepe Yenidoğan'ın en lezzetli kebap adresi. Konak kebap, Adana dürüm, el açması lahmacun ve pide çeşitleri.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://efendiustakonakkebap.com',
+  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://konak-kebap-website.vercel.app').replace(/\/+$/, ''),
   ogImage: '/og-image.jpg',
   phone: '+905515322534',
   phoneDisplay: '0551 532 25 34',

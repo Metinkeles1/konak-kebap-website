@@ -36,10 +36,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        'fixed top-0 inset-x-0 z-40 transition-all duration-300',
+        'fixed top-0 inset-x-0 z-40 transition-[background-color,border-color] duration-300',
         scrolled
-          ? 'bg-background/85 backdrop-blur-md border-b border-border/60'
-          : 'bg-transparent'
+          ? 'bg-background/95 backdrop-blur-sm border-b border-border/60'
+          : 'bg-transparent border-b border-transparent'
       )}
     >
       <div className="mx-auto max-w-360 px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">

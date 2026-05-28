@@ -1,18 +1,9 @@
 import type React from 'react';
-import { Clock, MapPin, Phone, Star, Truck } from 'lucide-react';
+import { Clock, MapPin, Phone, Truck, UtensilsCrossed } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 
-interface TrustBarProps {
-  rating?: number;
-  reviewCount?: number;
-}
-
-export function TrustBar({ rating = 4.7, reviewCount = 250 }: TrustBarProps) {
+export function TrustBar() {
   const items: { icon: React.ReactNode; label: string; href?: string; hideMobile?: boolean }[] = [
-    {
-      icon: <Star className="w-3.5 h-3.5 fill-gold text-gold" />,
-      label: `${rating.toFixed(1)} Google · ${reviewCount}+ yorum`,
-    },
     {
       icon: (
         <span className="relative flex h-2 w-2">
@@ -23,6 +14,7 @@ export function TrustBar({ rating = 4.7, reviewCount = 250 }: TrustBarProps) {
       label: 'Şimdi açık',
     },
     { icon: <Clock className="w-3.5 h-3.5 text-gold" />, label: '10:00 — 01:00' },
+    { icon: <UtensilsCrossed className="w-3.5 h-3.5 text-gold" />, label: '40+ çeşit menü' },
     { icon: <MapPin className="w-3.5 h-3.5 text-gold" />, label: 'Sancaktepe Yenidoğan', hideMobile: true },
     { icon: <Truck className="w-3.5 h-3.5 text-gold" />, label: 'Paket servis', hideMobile: true },
     {

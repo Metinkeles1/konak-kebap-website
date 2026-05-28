@@ -12,7 +12,7 @@ export function OrderSection() {
   const activePlatforms = platforms.filter((p) => Boolean(siteConfig.orderPlatforms[p.key]));
 
   return (
-    <section className="relative py-14 md:py-28 px-4 md:px-8">
+    <section className="relative py-14 md:py-28 xl:py-36 px-4 md:px-8">
       <div className="mx-auto max-w-360">
         <BlurFade inView>
           <div className="relative rounded-3xl overflow-hidden bg-foreground p-6 sm:p-8 md:p-12 lg:p-16">
@@ -28,13 +28,12 @@ export function OrderSection() {
             <div className="relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               {/* Left: Text */}
               <div>
-                <p className="text-gold text-xs uppercase tracking-[0.18em] font-semibold mb-4">
-                  Sipariş Ver
-                </p>
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-bg leading-[1.05] tracking-tight">
+                <p className="kicker mb-4">Sipariş Ver</p>
+                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-bg leading-[1.05] tracking-tight">
                   Karnınız mı acıktı?{' '}
                   <span className="italic text-gold-light">Tek tıkla.</span>
                 </h2>
+                <div className="h-px w-16 bg-gold/60 mt-6" />
                 <p className="mt-6 text-base md:text-lg text-bg/70 leading-relaxed max-w-md">
                   WhatsApp, telefon veya online platformlardan — istediğiniz şekilde
                   sipariş verin. 25-40 dakikada kapınızda.
@@ -59,7 +58,7 @@ export function OrderSection() {
                       <p className="text-sm opacity-85">En hızlı yol</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  <ExternalLink className="w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform]" />
                 </a>
 
                 <a
@@ -75,7 +74,7 @@ export function OrderSection() {
                       <p className="text-sm opacity-85">{siteConfig.phoneDisplay}</p>
                     </div>
                   </div>
-                  <ExternalLink className="w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  <ExternalLink className="w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform]" />
                 </a>
 
                 {/* Platforms */}

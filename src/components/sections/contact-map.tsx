@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 export function ContactMap() {
   return (
-    <section className="py-14 md:py-28 px-4 md:px-8">
+    <section className="py-14 md:py-28 xl:py-36 px-4 md:px-8">
       <div className="mx-auto max-w-360">
         <SectionTitle kicker="İletişim & Konum" title="Bizi Ziyaret Edin" />
 
@@ -66,7 +66,7 @@ export function ContactMap() {
           </BlurFade>
 
           <BlurFade delay={0.2} inView>
-            <div className="rounded-lg overflow-hidden border border-border h-full min-h-100">
+            <div className="rounded-lg overflow-hidden border border-border h-full min-h-100 xl:min-h-120">
               <iframe
                 src={siteConfig.maps.embedUrl}
                 width="100%"

@@ -15,21 +15,21 @@ interface GalleryItem {
 
 const galleryItems: GalleryItem[] = [
   // Yemekler
-  { alt: 'Adana Kebap', category: 'yemekler', src: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Konak Kebap Spesiyali', category: 'yemekler', src: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Lahmacun', category: 'yemekler', src: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Karışık Pide', category: 'yemekler', src: 'https://images.unsplash.com/photo-1574936145840-28808d77a0b6?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Karışık Kebap', category: 'yemekler', src: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Adana Dürüm', category: 'yemekler', src: 'https://images.unsplash.com/photo-1561626423-a51b45aef0a1?w=900&q=80&auto=format&fit=crop' },
+  { alt: 'Adana Kebap', category: 'yemekler', src: '/images/menu/adana-kebap.jpg' },
+  { alt: 'Konak Kebap Spesiyali', category: 'yemekler', src: '/images/menu/konak-kebap-spesiyali.jpg' },
+  { alt: 'Lahmacun', category: 'yemekler', src: '/images/menu/lahmacun.jpg' },
+  { alt: 'Karışık Pide', category: 'yemekler', src: '/images/menu/karisik-pide.jpg' },
+  { alt: 'Karışık Kebap', category: 'yemekler', src: '/images/menu/karisik-kebap.jpg' },
+  { alt: 'Adana Dürüm', category: 'yemekler', src: '/images/menu/adana-durum.jpg' },
   // Mekan
-  { alt: 'İç Mekan', category: 'mekan', src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Restoran Atmosferi', category: 'mekan', src: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Masa Düzeni', category: 'mekan', src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Bar Bölümü', category: 'mekan', src: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=80&auto=format&fit=crop' },
+  { alt: 'İç Mekan', category: 'mekan', src: '/images/mekan/ic-mekan.jpg' },
+  { alt: 'Restoran Atmosferi', category: 'mekan', src: '/images/mekan/restoran-atmosferi.jpg' },
+  { alt: 'Masa Düzeni', category: 'mekan', src: '/images/mekan/masa-duzeni.jpg' },
+  { alt: 'Bar Bölümü', category: 'mekan', src: '/images/mekan/bar-bolumu.jpg' },
   // Etkinlikler
-  { alt: 'Aile Yemekleri', category: 'etkinlikler', src: 'https://images.unsplash.com/photo-1543353071-873f17a7a088?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Catering Hizmeti', category: 'etkinlikler', src: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=900&q=80&auto=format&fit=crop' },
-  { alt: 'Toplu Sipariş', category: 'etkinlikler', src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900&q=80&auto=format&fit=crop' },
+  { alt: 'Aile Yemekleri', category: 'etkinlikler', src: '/images/etkinlikler/aile-yemekleri.jpg' },
+  { alt: 'Catering Hizmeti', category: 'etkinlikler', src: '/images/etkinlikler/catering.jpg' },
+  { alt: 'Toplu Sipariş', category: 'etkinlikler', src: '/images/etkinlikler/toplu-siparis.jpg' },
 ];
 
 export function GalleryGrid() {
@@ -54,6 +54,7 @@ export function GalleryGrid() {
                 src={item.src}
                 alt={`${item.alt} - Efendi Usta Konak Kebap Sancaktepe`}
                 fill
+                priority={i === 0}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -87,7 +88,7 @@ export function GalleryGrid() {
           {open && (
             <div className="relative aspect-video w-full rounded-md overflow-hidden">
               <Image
-                src={open.src.replace('w=900', 'w=1600')}
+                src={open.src}
                 alt={open.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 768px"

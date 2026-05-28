@@ -25,7 +25,7 @@ export default function GaleriPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 px-4 md:px-8">
+      <section className="py-16 md:py-24 px-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           <GalleryGrid />
         </div>

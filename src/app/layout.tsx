@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { WhatsAppFloat } from '@/components/layout/whatsapp-float';
+import { MobileCta } from '@/components/layout/mobile-cta';
 import { JsonLd } from '@/components/shared/json-ld';
 import { ClarityScript } from '@/components/shared/clarity-script';
 import { siteConfig } from '@/lib/site';
@@ -93,6 +94,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-16 md:pt-20">{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <MobileCta />
         <Toaster theme="light" />
         <ClarityScript />
         <Analytics />

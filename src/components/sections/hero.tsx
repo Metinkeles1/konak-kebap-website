@@ -10,11 +10,11 @@ import { cn } from '@/lib/utils';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-bg pt-8 md:pt-16 pb-12 md:pb-20 lg:min-h-[min(calc(100svh-8rem),52rem)] lg:flex lg:items-center">
+    <section className="relative overflow-hidden bg-bg pt-8 md:pt-16 lg:pt-10 pb-12 md:pb-20 lg:pb-10 lg:min-h-[min(calc(100svh-8rem),52rem)] lg:flex lg:items-center">
       <div className="mx-auto w-full max-w-360 px-4 md:px-8">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           {/* LEFT — Text & CTAs */}
-          <div className="lg:col-span-7 xl:col-span-6 order-2 lg:order-1">
+          <div className="lg:col-span-7 order-2 lg:order-1">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export function Hero() {
                 href="/menu"
                 className={cn(
                   buttonVariants({ size: 'lg' }),
-                  'bg-gold text-bg hover:bg-gold-light px-7 py-6 text-base font-semibold gap-2 group transition-all hover:shadow-[0_8px_24px_rgba(192,74,38,0.3)]'
+                  'bg-gold text-bg hover:bg-gold-light px-7 py-6 text-base font-semibold gap-2 group transition-[color,background-color,box-shadow] hover:shadow-[0_8px_24px_rgba(192,74,38,0.3)]'
                 )}
               >
                 Menüyü Gör
@@ -88,25 +88,15 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-8 md:mt-14 flex flex-wrap items-center gap-x-5 sm:gap-x-8 gap-y-3 text-xs sm:text-sm"
+              className="mt-8 md:mt-14 flex items-center gap-2 text-xs sm:text-sm"
             >
-              <div className="flex items-center gap-2">
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />
-                  ))}
-                </div>
-                <span className="text-foreground font-medium">4.7</span>
-                <span className="text-muted-foreground">· 250+ yorum</span>
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />
+                ))}
               </div>
-              <div className="h-4 w-px bg-border hidden sm:block" />
-              <div className="text-muted-foreground">
-                <span className="font-medium text-foreground">40+</span> çeşit menü
-              </div>
-              <div className="h-4 w-px bg-border hidden sm:block" />
-              <a href={`tel:${siteConfig.phone}`} className="text-foreground font-medium hover:text-gold transition-colors">
-                {siteConfig.phoneDisplay}
-              </a>
+              <span className="text-foreground font-medium">4.7</span>
+              <span className="text-muted-foreground">· Google&apos;da 250+ yorum</span>
             </motion.div>
           </div>
 
@@ -115,11 +105,11 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="lg:col-span-5 xl:col-span-6 order-1 lg:order-2 relative"
+            className="lg:col-span-5 order-1 lg:order-2 relative"
           >
             <div className="relative aspect-3/4 sm:aspect-4/5 lg:aspect-square rounded-2xl overflow-hidden bg-surface">
               <Image
-                src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=1200&q=90&auto=format&fit=crop"
+                src="/images/menu/konak-kebap-spesiyali.jpg"
                 alt="Konak Kebap Spesiyali - Efendi Usta Sancaktepe"
                 fill
                 priority
@@ -127,7 +117,7 @@ export function Hero() {
                 className="object-cover"
               />
               {/* Photo badge overlay */}
-              <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-bg/95 backdrop-blur-sm rounded-full px-3 py-1.5 text-xs font-semibold text-foreground shadow-md">
+              <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-bg/95 rounded-full px-3 py-1.5 text-xs font-semibold text-foreground shadow-md">
                 <span className="text-gold">🔥</span>
                 En çok tercih edilen
               </div>
@@ -143,10 +133,10 @@ export function Hero() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="hidden lg:block absolute -left-8 -bottom-8 w-40 h-40 rounded-xl overflow-hidden border-4 border-bg shadow-xl"
+              className="hidden lg:block absolute -left-8 -bottom-8 w-40 h-40 xl:w-48 xl:h-48 rounded-xl overflow-hidden border-4 border-bg shadow-xl"
             >
               <Image
-                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=90&auto=format&fit=crop"
+                src="/images/menu/lahmacun.jpg"
                 alt="Lahmacun"
                 fill
                 sizes="160px"

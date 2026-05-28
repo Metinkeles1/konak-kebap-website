@@ -48,7 +48,7 @@ export default function PaketServisPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 md:py-16 px-4 md:px-8">
+      <section className="py-16 md:py-24 px-4 md:px-8">
         <div className="mx-auto max-w-3xl">
           <BlurFade inView>
             <div className="p-8 md:p-10 rounded-lg border border-gold/30 bg-linear-to-br from-gold/5 to-transparent text-center">

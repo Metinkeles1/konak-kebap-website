@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Clock, Flame, MessageCircle } from 'lucide-react';
 import { Breadcrumbs } from '@/components/shared/breadcrumbs';
+import { DishPlaceholder } from '@/components/shared/dish-placeholder';
 import { JsonLd } from '@/components/shared/json-ld';
 import { buttonVariants } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -80,8 +81,8 @@ export default async function MenuItemPage({ params }: PageProps) {
 
           <div className="grid gap-10 md:grid-cols-2 mt-10">
             {/* Image */}
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-border bg-linear-to-br from-gold-dim/30 via-ember/20 to-bg">
-              {item.image && (
+            <div className="relative aspect-square rounded-lg overflow-hidden border border-border bg-surface">
+              {item.image ? (
                 <Image
                   src={item.image}
                   alt={`${item.name} - Efendi Usta Konak Kebap Sancaktepe`}
@@ -90,6 +91,8 @@ export default async function MenuItemPage({ params }: PageProps) {
                   className="object-cover"
                   priority
                 />
+              ) : (
+                <DishPlaceholder name={item.name} />
               )}
               <div className="absolute inset-0 bg-linear-to-t from-bg/60 to-transparent" />
               {item.badge && (

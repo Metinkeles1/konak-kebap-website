@@ -25,7 +25,7 @@ export function SectionTitle({
       )}
     >
       {kicker && <p className="kicker mb-4">{kicker}</p>}
-      <h2 className="text-3xl md:text-5xl font-display text-cream leading-tight">{title}</h2>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display text-cream tracking-tight leading-[1.05]">{title}</h2>
       <div
         className={cn('h-px bg-gold/60 mt-6 mb-4', align === 'center' ? 'mx-auto w-16' : 'w-16')}
       />

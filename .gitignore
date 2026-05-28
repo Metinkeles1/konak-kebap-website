@@ -27,6 +27,8 @@ Thumbs.db
 
 # temp / test screenshots
 /tmp/
+/screenshots/
+test-*.py
 
 # debug
 npm-debug.log*
