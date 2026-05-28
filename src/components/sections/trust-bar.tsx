@@ -26,7 +26,7 @@ export function TrustBar() {
   ];
 
   return (
-    <section className="bg-foreground text-bg py-3 border-y border-border">
+    <section className="bg-foreground text-bg py-3 border-y border-border border-b-foreground">
       <div className="mx-auto max-w-360 px-4 md:px-8">
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
           {items.map((item, i) => {

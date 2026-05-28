@@ -91,7 +91,7 @@ export function Navbar() {
             >
               <Menu className="h-6 w-6" />
             </SheetTrigger>
-            <SheetContent side="right" className="bg-background border-border w-72 p-6">
+            <SheetContent side="right" showCloseButton={false} className="bg-background border-border w-72 p-6">
               <SheetTitle className="sr-only">Mobil Menü</SheetTitle>
               <div className="flex items-center justify-between mb-8 mt-2">
                 <div className="flex flex-col leading-none">

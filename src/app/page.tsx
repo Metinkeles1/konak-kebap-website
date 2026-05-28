@@ -11,7 +11,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustBar />
+      <div className="hidden lg:block">
+        <TrustBar />
+      </div>
       <FeaturedMenu />
       <OrderSection />
       <AboutSummary />

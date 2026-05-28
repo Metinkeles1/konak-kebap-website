@@ -1,5 +1,6 @@
 import { NumberTicker } from '@/components/magicui/number-ticker';
 import { BlurFade } from '@/components/magicui/blur-fade';
+import { siteConfig } from '@/lib/site';
 
 interface StatsBarProps {
   rating?: number;
@@ -11,7 +12,7 @@ export function StatsBar({ rating, reviewCount }: StatsBarProps) {
     { value: 20, suffix: '+', label: 'Kebap Çeşidi' },
     { value: reviewCount && reviewCount > 0 ? reviewCount : 250, suffix: '+', label: 'Mutlu Müşteri' },
     {
-      value: rating ?? 4.7,
+      value: rating ?? siteConfig.rating.value,
       suffix: ' ★',
       label: 'Google Puanı',
       decimals: 1,
