@@ -4,10 +4,10 @@ import { BlurFade } from '@/components/magicui/blur-fade';
 import { SectionTitle } from '@/components/shared/section-title';
 
 const platforms = [
-  { key: 'yemeksepeti' as const, name: 'Yemeksepeti', color: 'from-[#ff0040]/20 to-[#ff0040]/5' },
-  { key: 'trendyolYemek' as const, name: 'Trendyol Yemek', color: 'from-[#f27a1a]/20 to-[#f27a1a]/5' },
-  { key: 'migros' as const, name: 'Migros Yemek', color: 'from-[#ff7a00]/20 to-[#ff7a00]/5' },
-  { key: 'getirYemek' as const, name: 'Getir Yemek', color: 'from-[#5d3ebc]/20 to-[#5d3ebc]/5' },
+  { key: 'yemeksepeti' as const, name: 'Yemeksepeti', color: '#FF0040' },
+  { key: 'trendyolYemek' as const, name: 'Trendyol Yemek', color: '#F27A1A' },
+  { key: 'migros' as const, name: 'Migros Yemek', color: '#FF7A00' },
+  { key: 'getirYemek' as const, name: 'Getir Yemek', color: '#5D3EBC' },
 ];
 
 export function OrderPlatforms({ compact = false }: { compact?: boolean }) {
@@ -24,8 +24,10 @@ export function OrderPlatforms({ compact = false }: { compact?: boolean }) {
             href={siteConfig.orderPlatforms[p.key]}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border bg-surface hover:border-gold/40 transition-colors text-sm"
+            style={{ '--brand': p.color } as React.CSSProperties}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-border bg-surface hover:border-(--brand) transition-colors text-sm"
           >
+            <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: p.color }} />
             {p.name}
             <ExternalLink className="w-3.5 h-3.5 text-muted-foreground" />
           </a>
@@ -45,15 +47,24 @@ export function OrderPlatforms({ compact = false }: { compact?: boolean }) {
                 href={siteConfig.orderPlatforms[p.key]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block p-6 rounded-lg border border-border bg-surface hover:border-gold/40 hover:-translate-y-1 transition-all"
+                style={{ '--brand': p.color } as React.CSSProperties}
+                className="group relative block overflow-hidden p-6 pl-7 rounded-xl border border-border bg-surface hover:border-(--brand) hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
-                <div className={`h-12 w-12 rounded-md bg-linear-to-br ${p.color} flex items-center justify-center mb-4`}>
-                  <ExternalLink className="w-5 h-5 text-cream" />
+                <span className="absolute inset-y-0 left-0 w-1.5" style={{ backgroundColor: p.color }} />
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-[0.07] transition-opacity" style={{ backgroundColor: p.color }} />
+                <div className="relative flex items-center justify-between">
+                  <div
+                    className="h-12 w-12 rounded-xl flex items-center justify-center font-display text-xl font-semibold text-white shadow-sm"
+                    style={{ backgroundColor: p.color }}
+                  >
+                    {p.name.charAt(0)}
+                  </div>
+                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h3 className="font-display text-xl text-cream group-hover:text-gold transition-colors">
+                <h3 className="relative font-display text-xl text-cream group-hover:text-gold transition-colors mt-4">
                   {p.name}
                 </h3>
-                <p className="text-xs text-muted-foreground mt-1">Hemen sipariş ver</p>
+                <p className="relative text-xs text-muted-foreground mt-1">Hemen sipariş ver</p>
               </a>
             </BlurFade>
           ))}

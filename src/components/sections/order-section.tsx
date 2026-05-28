@@ -92,16 +92,20 @@ export function OrderSection() {
                         href={siteConfig.orderPlatforms[p.key]}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-between px-5 py-4 rounded-xl border border-bg/15 text-bg hover:bg-bg/5 transition-colors group"
+                        style={{ '--brand': p.color } as React.CSSProperties}
+                        className="relative overflow-hidden flex items-center justify-between px-5 py-4 rounded-xl border border-bg/15 text-bg hover:border-(--brand) transition-colors group"
                       >
-                        <div className="flex items-center gap-3">
-                          <div
-                            className="w-3 h-3 rounded-full"
+                        <span className="absolute inset-0 opacity-0 group-hover:opacity-[0.12] transition-opacity" style={{ backgroundColor: p.color }} />
+                        <div className="relative flex items-center gap-3">
+                          <span
+                            className="w-9 h-9 rounded-lg flex items-center justify-center font-display text-base font-semibold text-white shadow-sm"
                             style={{ backgroundColor: p.color }}
-                          />
+                          >
+                            {p.name.charAt(0)}
+                          </span>
                           <span className="font-medium">{p.name}</span>
                         </div>
-                        <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        <ExternalLink className="relative w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-[opacity,transform]" />
                       </a>
                     ))}
                   </>
