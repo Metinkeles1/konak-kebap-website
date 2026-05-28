@@ -9,9 +9,24 @@ export function getRestaurantSchema(rating?: { value: number; count: number }) {
     name: siteConfig.name,
     url: siteConfig.url,
     telephone: siteConfig.phone,
-    image: [`${siteConfig.url}${siteConfig.ogImage}`],
+    image: [
+      `${siteConfig.url}/images/menu/konak-kebap-spesiyali.jpg`,
+      `${siteConfig.url}/images/mekan/ic-mekan.jpg`,
+    ],
     priceRange: '₺₺',
+    paymentAccepted: siteConfig.paymentAccepted,
+    currenciesAccepted: 'TRY',
     servesCuisine: ['Türk Mutfağı', 'Kebap', 'Lahmacun', 'Pide', 'Dürüm'],
+    areaServed: siteConfig.areaServed.map((name) => ({ '@type': 'Place', name })),
+    amenityFeature: [
+      'Açık hava oturma alanı',
+      'Ücretsiz Wi-Fi',
+      'Ücretsiz otopark',
+      'Helal yemek',
+      'Aileler için uygun',
+      'Mama sandalyesi',
+      'Paket servis',
+    ].map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address.street,
@@ -25,15 +40,13 @@ export function getRestaurantSchema(rating?: { value: number; count: number }) {
       latitude: siteConfig.address.coordinates.lat,
       longitude: siteConfig.address.coordinates.lng,
     },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: siteConfig.hours.open,
-        closes: siteConfig.hours.close,
-      },
-    ],
-    menu: `${siteConfig.url}/menu`,
+    openingHoursSpecification: siteConfig.hours.schedule.map((s) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: s.dow,
+      opens: s.open,
+      closes: s.close,
+    })),
+    hasMenu: `${siteConfig.url}/menu`,
     acceptsReservations: 'True',
     hasMap: siteConfig.maps.directUrl,
     sameAs: [siteConfig.social.instagram, siteConfig.social.facebook].filter(Boolean),
@@ -114,7 +127,7 @@ export function getBlogPostingSchema(post: {
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
-      logo: { '@type': 'ImageObject', url: `${siteConfig.url}/logo.png` },
+      logo: { '@type': 'ImageObject', url: `${siteConfig.url}${siteConfig.ogImage}` },
     },
   };
 }

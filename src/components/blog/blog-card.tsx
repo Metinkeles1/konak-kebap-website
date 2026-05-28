@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Clock } from 'lucide-react';
 import type { BlogPost } from '@/types/blog';
 
-export function BlogCard({ post }: { post: BlogPost }) {
+export function BlogCard({ post, priority = false }: { post: BlogPost; priority?: boolean }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -15,6 +15,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
             src={post.coverImage}
             alt={post.title}
             fill
+            priority={priority}
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />

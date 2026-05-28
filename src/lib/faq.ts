@@ -9,7 +9,7 @@ export const faqs = [
   },
   {
     q: 'Çalışma saatleriniz nedir?',
-    a: "Her gün sabah 10:00'dan gece 01:00'e kadar açığız. Hafta sonu da dahil, hiç kapanmıyoruz.",
+    a: "Her gün açığız. Salı–Cumartesi 10:00–01:00, Pazartesi 10:00–02:00, Pazar 11:00–02:00 saatleri arasında hizmet veriyoruz.",
   },
   {
     q: 'Catering ve toplu sipariş kabul ediyor musunuz?',

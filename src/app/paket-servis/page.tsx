@@ -77,7 +77,7 @@ export default function PaketServisPage() {
               </div>
               <p className="text-xs text-muted-foreground mt-6 flex items-center gap-1.5 justify-center">
                 <Clock className="w-3.5 h-3.5 text-gold" />
-                Her gün 10:00 — 01:00 arası
+                Her gün açığız (10:00 — 01:00, hafta sonu 02:00)
               </p>
             </div>
           </BlurFade>

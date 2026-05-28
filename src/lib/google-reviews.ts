@@ -19,9 +19,9 @@ export interface PlaceDetails {
 export const getGoogleReviews = unstable_cache(
   async (): Promise<PlaceDetails | null> => {
     const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-    const placeId = process.env.GOOGLE_PLACE_ID;
+    const placeId = process.env.GOOGLE_PLACE_ID || 'ChIJ4Vw_srbRyhQRwOvuGT0yxME';
 
-    if (!apiKey || !placeId) {
+    if (!apiKey) {
       return null;
     }
 

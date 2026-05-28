@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { Clock, CreditCard, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { Breadcrumbs } from '@/components/shared/breadcrumbs';
 import { SectionTitle } from '@/components/shared/section-title';
 import { ContactForm } from '@/components/forms/contact-form';
@@ -8,19 +8,14 @@ import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'İletişim & Konum — Sancaktepe Yenidoğan',
-  description: `Sancaktar Cd. No:2B Sancaktepe. ${siteConfig.phoneDisplay}. Her gün 10:00-01:00 hizmetinizdeyiz.`,
+  description: `Sancaktar Cd. No:2B Sancaktepe. ${siteConfig.phoneDisplay}. Her gün açığız — adres, konum ve çalışma saatleri.`,
   alternates: { canonical: '/iletisim' },
 };
 
-const days = [
-  { label: 'Pazartesi', hours: '10:00 — 01:00' },
-  { label: 'Salı', hours: '10:00 — 01:00' },
-  { label: 'Çarşamba', hours: '10:00 — 01:00' },
-  { label: 'Perşembe', hours: '10:00 — 01:00' },
-  { label: 'Cuma', hours: '10:00 — 01:00' },
-  { label: 'Cumartesi', hours: '10:00 — 01:00' },
-  { label: 'Pazar', hours: '10:00 — 01:00' },
-];
+const days = siteConfig.hours.schedule.map((s) => ({
+  label: s.day,
+  hours: `${s.open} — ${s.close}`,
+}));
 
 export default function IletisimPage() {
   return (
@@ -69,6 +64,23 @@ export default function IletisimPage() {
                       <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="text-cream hover:text-gold transition-colors">
                         {siteConfig.phoneDisplay}
                       </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CreditCard className="w-5 h-5 text-gold mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Ödeme</p>
+                      <p className="text-cream">Nakit, Kredi/Banka Kartı, NFC</p>
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {siteConfig.mealCards.map((card) => (
+                          <span
+                            key={card}
+                            className="text-xs px-2 py-0.5 rounded-full border border-border bg-bg text-muted-foreground"
+                          >
+                            {card}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>

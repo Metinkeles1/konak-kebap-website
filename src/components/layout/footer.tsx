@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site';
-import { Clock, MapPin, Phone } from 'lucide-react';
+import { Clock, CreditCard, MapPin, Phone } from 'lucide-react';
 
 function Instagram({ className }: { className?: string }) {
   return (
@@ -79,6 +79,10 @@ export function Footer() {
               <li className="flex items-center gap-2 text-muted-foreground">
                 <Clock className="h-4 w-4 shrink-0 text-gold" />
                 <span>{siteConfig.hours.display}</span>
+              </li>
+              <li className="flex items-start gap-2 text-muted-foreground">
+                <CreditCard className="h-4 w-4 shrink-0 text-gold mt-0.5" />
+                <span>Nakit, kart & yemek kartı ({siteConfig.mealCards.join(', ')})</span>
               </li>
             </ul>
           </div>

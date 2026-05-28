@@ -70,8 +70,8 @@ export default function HakkimizdaPage() {
                 İmza yemeğimiz <strong className="text-gold">Konak Kebap Spesiyali</strong>, özel
                 baharat karışımı ve restoran tarzı sunumuyla Sancaktepe&apos;de tadına ancak
                 burada varılabilecek bir lezzet sunar. Aile yemekleri, arkadaş buluşmaları ve özel
-                organizasyonlar için sıcak atmosferimiz ve samimi servisimizle her gün 10:00 —
-                01:00 saatleri arasında hizmetinizdeyiz.
+                organizasyonlar için sıcak atmosferimiz ve samimi servisimizle hafta boyunca
+                hizmetinizdeyiz.
               </p>
             </div>
           </BlurFade>

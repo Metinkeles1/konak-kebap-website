@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Clock, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { Clock, CreditCard, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { SectionTitle } from '@/components/shared/section-title';
@@ -38,6 +38,23 @@ export function ContactMap() {
                   <div>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Çalışma Saatleri</p>
                     <p className="text-cream">{siteConfig.hours.display}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CreditCard className="w-5 h-5 text-gold mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Ödeme</p>
+                    <p className="text-cream">Nakit, Kredi/Banka Kartı, NFC</p>
+                    <div className="flex flex-wrap gap-1.5 mt-2">
+                      {siteConfig.mealCards.map((card) => (
+                        <span
+                          key={card}
+                          className="text-xs px-2 py-0.5 rounded-full border border-border bg-bg text-muted-foreground"
+                        >
+                          {card}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,12 +1,12 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site';
 import { getAllMenuItems } from '@/lib/menu';
-import { getAllBlogSlugs } from '@/lib/blog';
+import { getAllBlogPosts } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ['', '/menu', '/hakkimizda', '/galeri', '/iletisim', '/rezervasyon', '/paket-servis', '/blog'];
   const menuItems = getAllMenuItems();
-  const blogSlugs = getAllBlogSlugs();
+  const blogPosts = getAllBlogPosts();
   const now = new Date();
 
   return [
@@ -22,9 +22,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
-    ...blogSlugs.map((slug) => ({
-      url: `${siteConfig.url}/blog/${slug}`,
-      lastModified: now,
+    ...blogPosts.map((post) => ({
+      url: `${siteConfig.url}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),

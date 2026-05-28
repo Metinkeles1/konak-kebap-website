@@ -37,7 +37,7 @@ export default function BlogPage() {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post, i) => (
                 <BlurFade key={post.slug} delay={0.1 * i} inView>
-                  <BlogCard post={post} />
+                  <BlogCard post={post} priority={i === 0} />
                 </BlurFade>
               ))}
             </div>

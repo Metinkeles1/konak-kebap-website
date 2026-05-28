@@ -27,7 +27,7 @@ export function Hero() {
               </span>
               <span className="font-medium text-foreground">Şimdi açık</span>
               <span>·</span>
-              <span>10:00 — 01:00</span>
+              <span>Her gün açık</span>
             </motion.div>
 
             <motion.h1
@@ -95,8 +95,8 @@ export function Hero() {
                   <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />
                 ))}
               </div>
-              <span className="text-foreground font-medium">4.7</span>
-              <span className="text-muted-foreground">· Google&apos;da 250+ yorum</span>
+              <span className="text-foreground font-medium">4.3</span>
+              <span className="text-muted-foreground">· Google&apos;da 68 değerlendirme</span>
             </motion.div>
           </div>
 

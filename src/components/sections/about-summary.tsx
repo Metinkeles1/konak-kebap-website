@@ -28,6 +28,7 @@ export function AboutSummary() {
                 src="/images/mekan/ic-mekan.jpg"
                 alt="Efendi Usta Konak Kebap iç mekan"
                 fill
+                priority
                 sizes="(max-width: 768px) 100vw, 60vw"
                 className="object-cover"
               />

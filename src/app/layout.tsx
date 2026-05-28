@@ -11,6 +11,7 @@ import { JsonLd } from '@/components/shared/json-ld';
 import { ClarityScript } from '@/components/shared/clarity-script';
 import { siteConfig } from '@/lib/site';
 import { getRestaurantSchema } from '@/lib/schema';
+import { getGoogleReviews } from '@/lib/google-reviews';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -44,20 +45,11 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -85,11 +77,17 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const reviews = await getGoogleReviews();
+  const rating =
+    reviews && reviews.user_ratings_total > 0
+      ? { value: reviews.rating, count: reviews.user_ratings_total }
+      : siteConfig.rating;
+
   return (
     <html lang="tr" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
-        <JsonLd data={getRestaurantSchema()} />
+        <JsonLd data={getRestaurantSchema(rating)} />
         <Navbar />
         <main className="pt-16 md:pt-20">{children}</main>
         <Footer />
