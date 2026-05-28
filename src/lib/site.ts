@@ -8,6 +8,9 @@ export const siteConfig = {
   rating: { value: 4.3, count: 68 },
   phone: '+905515322534',
   phoneDisplay: '0551 532 25 34',
+  phoneSecondary: '+905365050161',
+  phoneSecondaryDisplay: '0536 505 01 61',
+  foundingDate: '2025-09-09',
   whatsapp: 'https://wa.me/905515322534',
   email: 'info@efendiustakonakkebap.com',
   address: {
@@ -46,8 +49,9 @@ export const siteConfig = {
     facebook: 'https://www.facebook.com/profile.php?id=61581258665612',
   },
   orderPlatforms: {
-    yemeksepeti: '',
-    trendyolYemek: '',
+    yemeksepeti: 'https://www.yemeksepeti.com/restaurant/oa7z/efendi-usta-konak-kebap',
+    trendyolYemek: 'https://tgoyemek.com/restoranlar/392244',
+    migros: 'https://www.migros.com.tr/yemek/efendi-usta-konak-kebap-sancaktepe-safa-mah-st-30230',
     getirYemek: '',
   },
   maps: {

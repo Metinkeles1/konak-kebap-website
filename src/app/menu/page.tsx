@@ -3,6 +3,8 @@ import { MenuTabs } from '@/components/menu/menu-tabs';
 import { Breadcrumbs } from '@/components/shared/breadcrumbs';
 import { OrderPlatforms } from '@/components/sections/order-platforms';
 import { SectionTitle } from '@/components/shared/section-title';
+import { JsonLd } from '@/components/shared/json-ld';
+import { getFullMenuSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Menü — Kebap, Lahmacun, Pide Çeşitleri',
@@ -16,6 +18,7 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <>
+      <JsonLd data={getFullMenuSchema()} />
       {/* Small hero */}
       <section className="relative py-16 md:py-24 px-4 md:px-8 bg-grain border-b border-border">
         <div className="mx-auto max-w-360">

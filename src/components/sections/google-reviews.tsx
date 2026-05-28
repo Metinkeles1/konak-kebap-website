@@ -1,14 +1,37 @@
 import { Star } from 'lucide-react';
 import Image from 'next/image';
 import { getGoogleReviews } from '@/lib/google-reviews';
+import { curatedReviews } from '@/lib/reviews';
+import { siteConfig } from '@/lib/site';
 import { Marquee } from '@/components/magicui/marquee';
 import { SectionTitle } from '@/components/shared/section-title';
 
+interface DisplayReview {
+  author_name: string;
+  rating: number;
+  text: string;
+  relative_time_description: string;
+  profile_photo_url?: string;
+  source: string;
+}
+
 export async function GoogleReviews() {
   const data = await getGoogleReviews();
-  if (!data || !data.reviews || data.reviews.length === 0) return null;
 
-  const reviews = data.reviews.slice(0, 5);
+  const googleReviews: DisplayReview[] = (data?.reviews ?? []).slice(0, 5).map((r) => ({
+    author_name: r.author_name,
+    rating: r.rating,
+    text: r.text,
+    relative_time_description: r.relative_time_description,
+    profile_photo_url: r.profile_photo_url,
+    source: 'Google',
+  }));
+
+  const reviews: DisplayReview[] = [...googleReviews, ...curatedReviews];
+  if (reviews.length === 0) return null;
+
+  const rating = data?.rating ?? siteConfig.rating.value;
+  const total = data?.user_ratings_total ?? siteConfig.rating.count;
 
   return (
     <section className="py-14 md:py-28 xl:py-36 px-4 md:px-8 overflow-hidden">
@@ -16,7 +39,7 @@ export async function GoogleReviews() {
         <SectionTitle
           kicker="Müşteri Yorumları"
           title="Ne Diyor Sancaktepelliler?"
-          description={`Google'da ${data.rating.toFixed(1)} ★ puan, ${data.user_ratings_total}+ yorum.`}
+          description={`Google'da ${rating.toFixed(1)} ★ puan, ${total}+ değerlendirme — Google ve sipariş platformlarından yorumlar.`}
         />
       </div>
       <div className="mt-12 relative">
@@ -28,24 +51,29 @@ export async function GoogleReviews() {
               key={i}
               className="w-72 sm:w-80 md:w-100 mx-2 p-4 sm:p-6 rounded-lg border border-border bg-surface flex flex-col gap-3"
             >
-              <div className="flex items-center gap-3">
-                {r.profile_photo_url ? (
-                  <Image
-                    src={r.profile_photo_url}
-                    alt={r.author_name}
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                  />
-                ) : (
-                  <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-semibold">
-                    {r.author_name.charAt(0)}
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  {r.profile_photo_url ? (
+                    <Image
+                      src={r.profile_photo_url}
+                      alt={r.author_name}
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center text-gold font-semibold shrink-0">
+                      {r.author_name.charAt(0)}
+                    </div>
+                  )}
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium text-cream truncate">{r.author_name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{r.relative_time_description}</p>
                   </div>
-                )}
-                <div>
-                  <p className="text-sm font-medium text-cream">{r.author_name}</p>
-                  <p className="text-xs text-muted-foreground">{r.relative_time_description}</p>
                 </div>
+                <span className="shrink-0 text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border border-border text-muted-foreground">
+                  {r.source}
+                </span>
               </div>
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, j) => (

@@ -52,8 +52,11 @@ export default function IletisimPage() {
                     <Phone className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                     <div>
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Telefon</p>
-                      <a href={`tel:${siteConfig.phone}`} className="text-cream hover:text-gold text-lg transition-colors">
+                      <a href={`tel:${siteConfig.phone}`} className="block text-cream hover:text-gold text-lg transition-colors">
                         {siteConfig.phoneDisplay}
+                      </a>
+                      <a href={`tel:${siteConfig.phoneSecondary}`} className="block text-cream hover:text-gold transition-colors">
+                        {siteConfig.phoneSecondaryDisplay}
                       </a>
                     </div>
                   </div>

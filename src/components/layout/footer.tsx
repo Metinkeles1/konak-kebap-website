@@ -105,6 +105,13 @@ export function Footer() {
                   </a>
                 </li>
               )}
+              {siteConfig.orderPlatforms.migros && (
+                <li>
+                  <a href={siteConfig.orderPlatforms.migros} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-gold transition-colors">
+                    Migros Yemek
+                  </a>
+                </li>
+              )}
               {siteConfig.orderPlatforms.getirYemek && (
                 <li>
                   <a href={siteConfig.orderPlatforms.getirYemek} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-gold transition-colors">

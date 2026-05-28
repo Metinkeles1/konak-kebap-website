@@ -6,6 +6,7 @@ export function OrderSection() {
   const platforms = [
     { key: 'yemeksepeti' as const, name: 'Yemeksepeti', color: '#FF0040' },
     { key: 'trendyolYemek' as const, name: 'Trendyol Yemek', color: '#F27A1A' },
+    { key: 'migros' as const, name: 'Migros Yemek', color: '#FF7A00' },
     { key: 'getirYemek' as const, name: 'Getir Yemek', color: '#5D3EBC' },
   ];
 

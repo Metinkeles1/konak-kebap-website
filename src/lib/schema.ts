@@ -1,4 +1,5 @@
 import { siteConfig } from './site';
+import { menuData } from './menu';
 import type { MenuItem } from '@/types/menu';
 
 export function getRestaurantSchema(rating?: { value: number; count: number }) {
@@ -9,6 +10,8 @@ export function getRestaurantSchema(rating?: { value: number; count: number }) {
     name: siteConfig.name,
     url: siteConfig.url,
     telephone: siteConfig.phone,
+    logo: `${siteConfig.url}${siteConfig.ogImage}`,
+    foundingDate: siteConfig.foundingDate,
     image: [
       `${siteConfig.url}/images/menu/konak-kebap-spesiyali.jpg`,
       `${siteConfig.url}/images/mekan/ic-mekan.jpg`,
@@ -49,6 +52,10 @@ export function getRestaurantSchema(rating?: { value: number; count: number }) {
     hasMenu: `${siteConfig.url}/menu`,
     acceptsReservations: 'True',
     hasMap: siteConfig.maps.directUrl,
+    contactPoint: [
+      { '@type': 'ContactPoint', telephone: siteConfig.phone, contactType: 'reservations', areaServed: 'TR', availableLanguage: 'Turkish' },
+      { '@type': 'ContactPoint', telephone: siteConfig.phoneSecondary, contactType: 'customer service', areaServed: 'TR', availableLanguage: 'Turkish' },
+    ],
     sameAs: [siteConfig.social.instagram, siteConfig.social.facebook].filter(Boolean),
   };
 
@@ -63,6 +70,32 @@ export function getRestaurantSchema(rating?: { value: number; count: number }) {
   }
 
   return schema;
+}
+
+export function getFullMenuSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Menu',
+    name: `${siteConfig.name} Menüsü`,
+    url: `${siteConfig.url}/menu`,
+    inLanguage: 'tr',
+    hasMenuSection: Object.entries(menuData).map(([category, items]) => ({
+      '@type': 'MenuSection',
+      name: category,
+      hasMenuItem: items.map((item) => ({
+        '@type': 'MenuItem',
+        name: item.name,
+        description: item.longDesc || item.desc,
+        ...(item.image ? { image: `${siteConfig.url}${item.image}` } : {}),
+        offers: {
+          '@type': 'Offer',
+          price: item.price,
+          priceCurrency: 'TRY',
+          availability: 'https://schema.org/InStock',
+        },
+      })),
+    })),
+  };
 }
 
 export function getMenuItemSchema(item: MenuItem, category: string) {

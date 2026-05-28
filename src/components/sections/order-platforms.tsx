@@ -6,6 +6,7 @@ import { SectionTitle } from '@/components/shared/section-title';
 const platforms = [
   { key: 'yemeksepeti' as const, name: 'Yemeksepeti', color: 'from-[#ff0040]/20 to-[#ff0040]/5' },
   { key: 'trendyolYemek' as const, name: 'Trendyol Yemek', color: 'from-[#f27a1a]/20 to-[#f27a1a]/5' },
+  { key: 'migros' as const, name: 'Migros Yemek', color: 'from-[#ff7a00]/20 to-[#ff7a00]/5' },
   { key: 'getirYemek' as const, name: 'Getir Yemek', color: 'from-[#5d3ebc]/20 to-[#5d3ebc]/5' },
 ];
 
