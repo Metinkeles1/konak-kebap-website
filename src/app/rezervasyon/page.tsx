@@ -17,11 +17,12 @@ export const metadata: Metadata = {
 export default function RezervasyonPage() {
   return (
     <>
-      <section className="relative py-16 md:py-24 px-4 md:px-8 bg-grain border-b border-border">
+      <section className="relative page-header px-4 md:px-8 bg-grain border-b border-border">
         <div className="mx-auto max-w-360">
           <Breadcrumbs items={[{ name: 'Rezervasyon', href: '/rezervasyon' }]} />
-          <div className="mt-8 text-center">
+          <div className="mt-5 md:mt-8 text-center">
             <SectionTitle
+              as="h1"
               kicker="Rezervasyon"
               title="Masanızı Ayırtın"
               description="Aile yemekleri, arkadaş buluşmaları ve özel günler için masa rezervasyonu yapın."
@@ -30,7 +31,7 @@ export default function RezervasyonPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8">
+      <section className="section-head px-4 md:px-8">
         <div className="mx-auto max-w-3xl">
           <BlurFade inView>
             <div className="p-6 md:p-10 rounded-lg border border-border bg-surface">

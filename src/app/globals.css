@@ -128,6 +128,26 @@
   }
 }
 
+/* ── Vertical rhythm system ──────────────────────────────────
+   Single source of truth for section spacing. Keep every section
+   on one of these tokens so the whole site shares one hierarchy.
+   - .page-header : intro band (breadcrumb + title) under the navbar
+   - .section-head: first content block right after a .page-header
+                    (trimmed top so it doesn't double the band's pb)
+   - .section     : standard full-width section rhythm everywhere else
+*/
+@layer components {
+  .page-header {
+    @apply pt-4 pb-8 md:pt-6 md:pb-12;
+  }
+  .section-head {
+    @apply pt-8 pb-14 md:pt-12 md:pb-20;
+  }
+  .section {
+    @apply py-14 md:py-20;
+  }
+}
+
 /* Section accent line */
 .gold-accent::after {
   content: '';

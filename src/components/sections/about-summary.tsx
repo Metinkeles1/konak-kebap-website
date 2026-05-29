@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 
 export function AboutSummary() {
   return (
-    <section className="relative py-14 md:py-28 xl:py-36 px-4 md:px-8 bg-surface">
+    <section className="relative section px-4 md:px-8 bg-surface">
       <div className="mx-auto max-w-360">
         <div className="mb-12 md:mb-16 max-w-2xl">
           <p className="kicker mb-4">Biz Kimiz</p>

@@ -35,11 +35,12 @@ const reasons = [
 export default function HakkimizdaPage() {
   return (
     <>
-      <section className="relative py-16 md:py-24 px-4 md:px-8 bg-grain border-b border-border">
+      <section className="relative page-header px-4 md:px-8 bg-grain border-b border-border">
         <div className="mx-auto max-w-360">
           <Breadcrumbs items={[{ name: 'Hakkımızda', href: '/hakkimizda' }]} />
-          <div className="mt-8 text-center">
+          <div className="mt-5 md:mt-8 text-center">
             <SectionTitle
+              as="h1"
               kicker="Hakkımızda"
               title="Geleneksel Lezzetin Adresi"
               description="Sancaktepe Yenidoğan'da, ustalık ve tutkuyla hizmet veriyoruz."
@@ -49,7 +50,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Story */}
-      <section className="py-16 md:py-24 px-4 md:px-8">
+      <section className="section-head px-4 md:px-8">
         <div className="mx-auto max-w-3xl">
           <BlurFade inView>
             <div className="prose-invert">
@@ -80,7 +81,7 @@ export default function HakkimizdaPage() {
       </section>
 
       {/* Why us */}
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-surface/30">
+      <section className="section px-4 md:px-8 bg-surface/30">
         <div className="mx-auto max-w-360">
           <SectionTitle kicker="Neden Biz?" title="Sancaktepe'nin Favori Adresi" />
           <div className="grid gap-6 mt-14 md:grid-cols-2 lg:grid-cols-4">

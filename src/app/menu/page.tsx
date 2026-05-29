@@ -21,11 +21,12 @@ export default function MenuPage() {
     <>
       <JsonLd data={getFullMenuSchema()} />
       {/* Small hero */}
-      <section className="relative py-16 md:py-24 px-4 md:px-8 bg-grain border-b border-border">
+      <section className="relative page-header px-4 md:px-8 bg-grain border-b border-border">
         <div className="mx-auto max-w-360">
           <Breadcrumbs items={[{ name: 'Menü', href: '/menu' }]} />
-          <div className="mt-8 text-center">
+          <div className="mt-5 md:mt-8 text-center">
             <SectionTitle
+              as="h1"
               kicker="Menümüz"
               title="Lezzetin Tam Listesi"
               description={`${menuItemCountRounded}+ çeşit ile damak çıtanıza uygun lezzetler. Kategorilere göre filtreleyin.`}
@@ -34,7 +35,7 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8">
+      <section className="section-head px-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           <MenuTabs />
         </div>

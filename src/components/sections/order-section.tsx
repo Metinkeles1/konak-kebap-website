@@ -13,7 +13,7 @@ export function OrderSection() {
   const activePlatforms = platforms.filter((p) => Boolean(siteConfig.orderPlatforms[p.key]));
 
   return (
-    <section className="relative py-14 md:py-28 xl:py-36 px-4 md:px-8">
+    <section className="relative section px-4 md:px-8">
       <div className="mx-auto max-w-360">
         <BlurFade inView>
           <div className="relative rounded-3xl overflow-hidden bg-foreground p-6 sm:p-8 md:p-12 lg:p-16">

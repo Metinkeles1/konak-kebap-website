@@ -16,11 +16,12 @@ export default function BlogPage() {
 
   return (
     <>
-      <section className="relative py-16 md:py-24 px-4 md:px-8 bg-grain border-b border-border">
+      <section className="relative page-header px-4 md:px-8 bg-grain border-b border-border">
         <div className="mx-auto max-w-360">
           <Breadcrumbs items={[{ name: 'Blog', href: '/blog' }]} />
-          <div className="mt-8 text-center">
+          <div className="mt-5 md:mt-8 text-center">
             <SectionTitle
+              as="h1"
               kicker="Blog"
               title="Lezzet Üzerine Yazılar"
               description="Sancaktepe kebap kültürü, geleneksel tarifler ve mutfak ipuçları."
@@ -29,7 +30,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 md:px-8">
+      <section className="section-head px-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           {posts.length === 0 ? (
             <p className="text-center text-muted-foreground">Henüz blog yazısı yok.</p>

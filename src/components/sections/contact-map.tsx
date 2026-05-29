@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 export function ContactMap() {
   return (
-    <section className="py-14 md:py-28 xl:py-36 px-4 md:px-8">
+    <section className="section px-4 md:px-8">
       <div className="mx-auto max-w-360">
         <SectionTitle kicker="İletişim & Konum" title="Bizi Ziyaret Edin" />
 

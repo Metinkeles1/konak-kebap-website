@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         ]}
       />
 
-      <article className="py-16 md:py-24 px-4 md:px-8">
+      <article className="section px-4 md:px-8">
         <div className="mx-auto max-w-3xl">
           <Breadcrumbs
             items={[

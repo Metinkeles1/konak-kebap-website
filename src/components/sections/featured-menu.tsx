@@ -13,7 +13,7 @@ export function FeaturedMenu() {
     .filter((item): item is NonNullable<ReturnType<typeof getMenuItemBySlug>> => Boolean(item));
 
   return (
-    <section className="relative py-14 md:py-28 xl:py-36 px-4 md:px-8">
+    <section className="relative section px-4 md:px-8">
       <div className="mx-auto max-w-360">
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">

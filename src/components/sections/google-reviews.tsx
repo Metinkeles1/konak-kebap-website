@@ -34,7 +34,7 @@ export async function GoogleReviews() {
   const total = data?.user_ratings_total ?? siteConfig.rating.count;
 
   return (
-    <section className="py-14 md:py-28 xl:py-36 px-4 md:px-8 overflow-hidden">
+    <section className="section px-4 md:px-8 overflow-hidden">
       <div className="mx-auto max-w-360">
         <SectionTitle
           kicker="Müşteri Yorumları"
