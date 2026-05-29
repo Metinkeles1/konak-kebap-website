@@ -14,21 +14,21 @@ export function ContactMap() {
 
         <div className="grid gap-8 mt-14 lg:grid-cols-2">
           <BlurFade delay={0} inView>
-            <div className="p-5 sm:p-8 rounded-lg border border-border bg-surface h-full">
-              <h3 className="font-display text-2xl text-cream mb-6">Bilgiler</h3>
+            <div className="p-5 sm:p-8 rounded-2xl border border-border bg-surface h-full">
+              <h3 className="font-display text-2xl text-foreground mb-6">Bilgiler</h3>
               <div className="space-y-5">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                   <div>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Adres</p>
-                    <p className="text-cream">{siteConfig.address.full}</p>
+                    <p className="text-foreground">{siteConfig.address.full}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                   <div>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Telefon</p>
-                    <a href={`tel:${siteConfig.phone}`} className="text-cream hover:text-gold transition-colors text-lg">
+                    <a href={`tel:${siteConfig.phone}`} className="text-foreground hover:text-gold transition-colors text-lg">
                       {siteConfig.phoneDisplay}
                     </a>
                   </div>
@@ -37,14 +37,14 @@ export function ContactMap() {
                   <Clock className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                   <div>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Çalışma Saatleri</p>
-                    <p className="text-cream">{siteConfig.hours.display}</p>
+                    <p className="text-foreground">{siteConfig.hours.display}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CreditCard className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                   <div>
                     <p className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Ödeme</p>
-                    <p className="text-cream">Nakit, Kredi/Banka Kartı, NFC</p>
+                    <p className="text-foreground">Nakit, Kredi/Banka Kartı, NFC</p>
                     <div className="flex flex-wrap gap-1.5 mt-2">
                       {siteConfig.mealCards.map((card) => (
                         <span
@@ -83,7 +83,7 @@ export function ContactMap() {
           </BlurFade>
 
           <BlurFade delay={0.2} inView>
-            <div className="rounded-lg overflow-hidden border border-border h-full min-h-100 xl:min-h-120">
+            <div className="rounded-2xl overflow-hidden border border-border h-full min-h-100 xl:min-h-120">
               <iframe
                 src={siteConfig.maps.embedUrl}
                 width="100%"

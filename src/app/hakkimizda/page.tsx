@@ -87,11 +87,11 @@ export default function HakkimizdaPage() {
           <div className="grid gap-6 mt-14 md:grid-cols-2 lg:grid-cols-4">
             {reasons.map((reason, i) => (
               <BlurFade key={reason.title} delay={0.1 * i} inView>
-                <div className="p-6 rounded-lg border border-border bg-surface h-full">
+                <div className="p-6 rounded-xl border border-border bg-surface h-full">
                   <div className="w-10 h-10 rounded-md bg-gold/10 border border-gold/20 flex items-center justify-center mb-4">
                     <Check className="w-5 h-5 text-gold" />
                   </div>
-                  <h3 className="font-display text-xl text-cream">{reason.title}</h3>
+                  <h3 className="font-display text-xl text-foreground">{reason.title}</h3>
                   <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
                     {reason.desc}
                   </p>

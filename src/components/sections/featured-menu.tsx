@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Flame } from 'lucide-react';
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { DishPlaceholder } from '@/components/shared/dish-placeholder';
+import { SectionTitle } from '@/components/shared/section-title';
 import { buttonVariants } from '@/components/ui/button';
 import { featuredItems, getMenuItemBySlug, menuItemCountRounded } from '@/lib/menu';
 import { cn } from '@/lib/utils';
@@ -17,13 +18,11 @@ export function FeaturedMenu() {
       <div className="mx-auto max-w-360">
         {/* Section header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <div>
-            <p className="kicker mb-4">Popüler Lezzetler</p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground tracking-tight leading-[1.05]">
-              Bizden <span className="italic text-gold">tavsiye</span>
-            </h2>
-            <div className="h-px w-16 bg-gold/60 mt-6" />
-          </div>
+          <SectionTitle
+            align="left"
+            kicker="Popüler Lezzetler"
+            title={<>Bizden <span className="italic text-gold">tavsiye</span></>}
+          />
           <Link
             href="/menu"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-gold transition-colors group"
@@ -99,7 +98,7 @@ export function FeaturedMenu() {
             href="/menu"
             className={cn(
               buttonVariants({ size: 'lg' }),
-              'bg-foreground text-bg hover:bg-gold px-8 py-6 text-base font-semibold gap-2'
+              'bg-gold text-bg hover:bg-gold-light px-8 py-6 text-base font-semibold gap-2'
             )}
           >
             {menuItemCountRounded}+ Çeşit Menüyü İncele

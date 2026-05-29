@@ -31,7 +31,7 @@ export function Features() {
                 <div className="w-12 h-12 rounded-md bg-gold/10 border border-gold/20 flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6 text-gold" />
                 </div>
-                <h3 className="font-display text-2xl text-cream mb-3">{feature.title}</h3>
+                <h3 className="font-display text-2xl text-foreground mb-3">{feature.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{feature.desc}</p>
               </div>
             </BlurFade>

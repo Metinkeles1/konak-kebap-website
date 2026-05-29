@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           />
 
           {post.coverImage && (
-            <div className="relative aspect-video rounded-lg overflow-hidden border border-border mt-10">
+            <div className="relative aspect-video rounded-2xl overflow-hidden border border-border mt-10">
               <Image
                 src={post.coverImage}
                 alt={post.title}
@@ -116,8 +116,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
 
           {/* CTA */}
-          <div className="mt-12 p-8 rounded-lg border border-gold/30 bg-linear-to-br from-gold/5 to-transparent text-center">
-            <p className="text-base text-cream">
+          <div className="mt-12 p-8 rounded-2xl border border-gold/30 bg-linear-to-br from-gold/5 to-transparent text-center">
+            <p className="text-base text-foreground">
               Bu lezzetleri tatmak için bizi ziyaret edin veya hemen sipariş verin:
             </p>
             <a
@@ -135,7 +135,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Related */}
           {related.length > 0 && (
             <div className="mt-16">
-              <h2 className="font-display text-2xl md:text-3xl text-cream mb-8">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8">
                 İlgili Yazılar
               </h2>
               <div className="grid gap-6 md:grid-cols-2">

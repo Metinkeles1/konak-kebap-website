@@ -38,7 +38,7 @@ export function OrderPlatforms({ compact = false }: { compact?: boolean }) {
 
   return (
     <section className="relative section px-4 md:px-8">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <SectionTitle kicker="Online Sipariş" title="Sevdiğiniz Platformdan" />
         <div className="grid gap-4 mt-10 sm:grid-cols-2 md:grid-cols-3">
           {active.map((p, i) => (
@@ -61,7 +61,7 @@ export function OrderPlatforms({ compact = false }: { compact?: boolean }) {
                   </div>
                   <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
                 </div>
-                <h3 className="relative font-display text-xl text-cream group-hover:text-gold transition-colors mt-4">
+                <h3 className="relative font-display text-xl text-foreground group-hover:text-gold transition-colors mt-4">
                   {p.name}
                 </h3>
                 <p className="relative text-xs text-muted-foreground mt-1">Hemen sipariş ver</p>

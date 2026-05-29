@@ -48,7 +48,7 @@ export function GalleryGrid() {
               onClick={() => setOpen(item)}
               aria-label={`${item.alt} - Efendi Usta Konak Kebap Sancaktepe`}
               className={cn(
-                'group relative block w-full mb-4 rounded-lg overflow-hidden border border-border hover:border-gold/40 transition-all',
+                'group relative block w-full mb-4 rounded-xl overflow-hidden border border-border hover:border-gold/40 transition-all',
                 i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-3/4' : 'aspect-4/5'
               )}
             >
@@ -61,7 +61,7 @@ export function GalleryGrid() {
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute bottom-0 inset-x-0 p-3 bg-linear-to-t from-bg/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <p className="text-cream text-sm font-display text-left">{item.alt}</p>
+                <p className="text-foreground text-sm font-display text-left">{item.alt}</p>
               </div>
             </button>
           </BlurFade>

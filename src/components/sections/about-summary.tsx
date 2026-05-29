@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Flame, MapPin } from 'lucide-react';
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { NumberTicker } from '@/components/magicui/number-ticker';
+import { SectionTitle } from '@/components/shared/section-title';
 import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/lib/site';
 import { menuItemCountRounded } from '@/lib/menu';
@@ -12,13 +13,12 @@ export function AboutSummary() {
   return (
     <section className="relative section px-4 md:px-8 bg-surface">
       <div className="mx-auto max-w-360">
-        <div className="mb-12 md:mb-16 max-w-2xl">
-          <p className="kicker mb-4">Biz Kimiz</p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground tracking-tight leading-[1.05]">
-            Sancaktepe&apos;de <span className="italic text-gold">tutkulu</span> bir kebap dükkanı.
-          </h2>
-          <div className="h-px w-16 bg-gold/60 mt-6" />
-        </div>
+        <SectionTitle
+          align="left"
+          kicker="Biz Kimiz"
+          title={<>Sancaktepe&apos;de <span className="italic text-gold">tutkulu</span> bir kebap dükkanı.</>}
+          className="mb-12 md:mb-16"
+        />
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 md:gap-5 xl:gap-6">

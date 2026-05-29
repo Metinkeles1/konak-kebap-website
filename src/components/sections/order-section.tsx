@@ -1,5 +1,6 @@
 import { ExternalLink, MessageCircle, Phone } from 'lucide-react';
 import { BlurFade } from '@/components/magicui/blur-fade';
+import { SectionTitle } from '@/components/shared/section-title';
 import { siteConfig } from '@/lib/site';
 
 export function OrderSection() {
@@ -16,7 +17,7 @@ export function OrderSection() {
     <section className="relative section px-4 md:px-8">
       <div className="mx-auto max-w-360">
         <BlurFade inView>
-          <div className="relative rounded-3xl overflow-hidden bg-foreground p-6 sm:p-8 md:p-12 lg:p-16">
+          <div className="relative rounded-2xl overflow-hidden bg-foreground p-6 sm:p-8 md:p-12 lg:p-16">
             {/* Decorative pattern */}
             <div
               className="absolute inset-0 opacity-5 pointer-events-none"
@@ -28,18 +29,13 @@ export function OrderSection() {
 
             <div className="relative grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               {/* Left: Text */}
-              <div>
-                <p className="kicker mb-4">Sipariş Ver</p>
-                <h2 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-bg leading-[1.05] tracking-tight">
-                  Karnınız mı acıktı?{' '}
-                  <span className="italic text-gold-light">Tek tıkla.</span>
-                </h2>
-                <div className="h-px w-16 bg-gold/60 mt-6" />
-                <p className="mt-6 text-base md:text-lg text-bg/70 leading-relaxed max-w-md">
-                  WhatsApp, telefon veya online platformlardan — istediğiniz şekilde
-                  sipariş verin. 25-40 dakikada kapınızda.
-                </p>
-              </div>
+              <SectionTitle
+                align="left"
+                onDark
+                kicker="Sipariş Ver"
+                title={<>Karnınız mı acıktı? <span className="italic text-gold-light">Tek tıkla.</span></>}
+                description="WhatsApp, telefon veya online platformlardan — istediğiniz şekilde sipariş verin. 25-40 dakikada kapınızda."
+              />
 
               {/* Right: Action buttons */}
               <div className="flex flex-col gap-3">

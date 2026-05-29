@@ -30,7 +30,7 @@ export function Footer() {
           <div className="sm:col-span-2 md:col-span-1">
             <div className="flex flex-col leading-none mb-4">
               <span className="text-xs tracking-[0.3em] text-gold uppercase">Efendi Usta</span>
-              <span className="font-display text-2xl text-cream italic">Konak Kebap</span>
+              <span className="font-display text-2xl text-foreground italic">Konak Kebap</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Sancaktepe Yenidoğan&apos;ın en lezzetli kebap adresi. Geleneksel lezzetlerimizi
@@ -51,7 +51,7 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="font-display text-lg text-cream mb-4">Hızlı Linkler</h3>
+            <h3 className="font-display text-lg text-foreground mb-4">Hızlı Linkler</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/menu" className="text-muted-foreground hover:text-gold transition-colors">Menü</Link></li>
               <li><Link href="/hakkimizda" className="text-muted-foreground hover:text-gold transition-colors">Hakkımızda</Link></li>
@@ -64,7 +64,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-display text-lg text-cream mb-4">İletişim</h3>
+            <h3 className="font-display text-lg text-foreground mb-4">İletişim</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-gold" />
@@ -89,7 +89,7 @@ export function Footer() {
 
           {/* Online sipariş */}
           <div>
-            <h3 className="font-display text-lg text-cream mb-4">Online Sipariş</h3>
+            <h3 className="font-display text-lg text-foreground mb-4">Online Sipariş</h3>
             <ul className="space-y-2 text-sm">
               {siteConfig.orderPlatforms.yemeksepeti && (
                 <li>

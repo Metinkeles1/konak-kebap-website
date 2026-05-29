@@ -52,9 +52,9 @@ export default function PaketServisPage() {
       <section className="section-head px-4 md:px-8">
         <div className="mx-auto max-w-3xl">
           <BlurFade inView>
-            <div className="p-8 md:p-10 rounded-lg border border-gold/30 bg-linear-to-br from-gold/5 to-transparent text-center">
+            <div className="p-8 md:p-10 rounded-2xl border border-gold/30 bg-linear-to-br from-gold/5 to-transparent text-center">
               <Truck className="w-12 h-12 text-gold mx-auto mb-4" />
-              <h2 className="font-display text-2xl md:text-3xl text-cream">Sipariş Vermek İçin</h2>
+              <h2 className="font-display text-2xl md:text-3xl text-foreground">Sipariş Vermek İçin</h2>
               <div className="flex flex-col sm:flex-row gap-3 mt-8 justify-center">
                 <a
                   href={`tel:${siteConfig.phone}`}
@@ -92,7 +92,7 @@ export default function PaketServisPage() {
         <div className="mx-auto max-w-3xl space-y-12">
           <BlurFade inView>
             <div>
-              <h2 className="font-display text-2xl md:text-3xl text-cream">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground">
                 Sancaktepe&apos;de Paket Servis Hizmeti
               </h2>
               <div className="h-px bg-gold/60 w-16 my-4" />
@@ -108,7 +108,7 @@ export default function PaketServisPage() {
 
           <BlurFade inView>
             <div>
-              <h2 className="font-display text-2xl md:text-3xl text-cream">Hizmet Bölgelerimiz</h2>
+              <h2 className="font-display text-2xl md:text-3xl text-foreground">Hizmet Bölgelerimiz</h2>
               <div className="h-px bg-gold/60 w-16 my-4" />
               <p className="text-base text-foreground/90 leading-relaxed mb-4">
                 Aşağıdaki Sancaktepe mahallelerine paket servis yapıyoruz:
@@ -126,17 +126,17 @@ export default function PaketServisPage() {
 
           <BlurFade inView>
             <div>
-              <h2 className="font-display text-2xl md:text-3xl text-cream">Popüler Paket Ürünler</h2>
+              <h2 className="font-display text-2xl md:text-3xl text-foreground">Popüler Paket Ürünler</h2>
               <div className="h-px bg-gold/60 w-16 my-4" />
               <div className="grid sm:grid-cols-2 gap-4 mt-6">
                 {popular.map((p) => (
                   <Link
                     key={p.slug}
                     href={`/menu/${p.slug}`}
-                    className="group flex items-center justify-between p-4 rounded-lg border border-border bg-surface hover:border-gold/40 transition-colors"
+                    className="group flex items-center justify-between p-4 rounded-xl border border-border bg-surface hover:border-gold/40 transition-colors"
                   >
                     <div>
-                      <h3 className="font-display text-lg text-cream group-hover:text-gold transition-colors">
+                      <h3 className="font-display text-xl text-foreground group-hover:text-gold transition-colors">
                         {p.name}
                       </h3>
                       <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{p.desc}</p>
@@ -150,7 +150,7 @@ export default function PaketServisPage() {
 
           <BlurFade inView>
             <div>
-              <h2 className="font-display text-2xl md:text-3xl text-cream">Catering & Toplu Sipariş</h2>
+              <h2 className="font-display text-2xl md:text-3xl text-foreground">Catering & Toplu Sipariş</h2>
               <div className="h-px bg-gold/60 w-16 my-4" />
               <p className="text-base text-foreground/90 leading-relaxed">
                 Düğün, nişan, doğum günü, kurumsal yemekler ve etkinlikler için catering hizmeti

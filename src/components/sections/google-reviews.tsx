@@ -48,7 +48,7 @@ export async function GoogleReviews() {
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2"
             >
               <Star className="w-4 h-4 fill-gold text-gold shrink-0" />
-              <span className="font-display text-lg text-cream leading-none">{pf.value.toFixed(1)}</span>
+              <span className="font-display text-lg text-foreground leading-none">{pf.value.toFixed(1)}</span>
               <span className="text-sm text-muted-foreground">
                 {pf.name} · {pf.count}+ yorum
               </span>
@@ -63,7 +63,7 @@ export async function GoogleReviews() {
           {reviews.map((r, i) => (
             <div
               key={i}
-              className="w-72 sm:w-80 md:w-100 mx-2 p-4 sm:p-6 rounded-lg border border-border bg-surface flex flex-col gap-3"
+              className="w-72 sm:w-80 md:w-100 mx-2 p-4 sm:p-6 rounded-xl border border-border bg-surface flex flex-col gap-3"
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
@@ -81,7 +81,7 @@ export async function GoogleReviews() {
                     </div>
                   )}
                   <div className="min-w-0">
-                    <p className="text-sm font-medium text-cream truncate">{r.author_name}</p>
+                    <p className="text-sm font-medium text-foreground truncate">{r.author_name}</p>
                     <p className="text-xs text-muted-foreground truncate">{r.relative_time_description}</p>
                   </div>
                 </div>

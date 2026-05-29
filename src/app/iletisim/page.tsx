@@ -39,24 +39,24 @@ export default function IletisimPage() {
           {/* Info card */}
           <BlurFade inView>
             <div className="space-y-6">
-              <div className="p-6 rounded-lg border border-border bg-surface">
-                <h2 className="font-display text-2xl text-cream mb-5">Bilgiler</h2>
+              <div className="p-6 rounded-2xl border border-border bg-surface">
+                <h2 className="font-display text-2xl text-foreground mb-5">Bilgiler</h2>
                 <div className="space-y-5">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                     <div>
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Adres</p>
-                      <p className="text-cream">{siteConfig.address.full}</p>
+                      <p className="text-foreground">{siteConfig.address.full}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Phone className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                     <div>
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Telefon</p>
-                      <a href={`tel:${siteConfig.phone}`} className="block text-cream hover:text-gold text-lg transition-colors">
+                      <a href={`tel:${siteConfig.phone}`} className="block text-foreground hover:text-gold text-lg transition-colors">
                         {siteConfig.phoneDisplay}
                       </a>
-                      <a href={`tel:${siteConfig.phoneSecondary}`} className="block text-cream hover:text-gold transition-colors">
+                      <a href={`tel:${siteConfig.phoneSecondary}`} className="block text-foreground hover:text-gold transition-colors">
                         {siteConfig.phoneSecondaryDisplay}
                       </a>
                     </div>
@@ -65,7 +65,7 @@ export default function IletisimPage() {
                     <MessageCircle className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                     <div>
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">WhatsApp</p>
-                      <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="text-cream hover:text-gold transition-colors">
+                      <a href={siteConfig.whatsapp} target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-gold transition-colors">
                         {siteConfig.phoneDisplay}
                       </a>
                     </div>
@@ -74,7 +74,7 @@ export default function IletisimPage() {
                     <CreditCard className="w-5 h-5 text-gold mt-0.5 shrink-0" />
                     <div>
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Ödeme</p>
-                      <p className="text-cream">Nakit, Kredi/Banka Kartı, NFC</p>
+                      <p className="text-foreground">Nakit, Kredi/Banka Kartı, NFC</p>
                       <div className="flex flex-wrap gap-1.5 mt-2">
                         {siteConfig.mealCards.map((card) => (
                           <span
@@ -91,8 +91,8 @@ export default function IletisimPage() {
               </div>
 
               {/* Hours table */}
-              <div className="p-6 rounded-lg border border-border bg-surface">
-                <h2 className="font-display text-2xl text-cream mb-5 flex items-center gap-2">
+              <div className="p-6 rounded-2xl border border-border bg-surface">
+                <h2 className="font-display text-2xl text-foreground mb-5 flex items-center gap-2">
                   <Clock className="w-5 h-5 text-gold" />
                   Çalışma Saatleri
                 </h2>
@@ -100,7 +100,7 @@ export default function IletisimPage() {
                   {days.map((d) => (
                     <li key={d.label} className="flex justify-between text-sm">
                       <span className="text-muted-foreground">{d.label}</span>
-                      <span className="text-cream">{d.hours}</span>
+                      <span className="text-foreground">{d.hours}</span>
                     </li>
                   ))}
                 </ul>
@@ -110,8 +110,8 @@ export default function IletisimPage() {
 
           {/* Contact form */}
           <BlurFade delay={0.15} inView>
-            <div className="p-6 md:p-8 rounded-lg border border-border bg-surface">
-              <h2 className="font-display text-2xl text-cream mb-5">Mesaj Gönderin</h2>
+            <div className="p-6 md:p-8 rounded-2xl border border-border bg-surface">
+              <h2 className="font-display text-2xl text-foreground mb-5">Mesaj Gönderin</h2>
               <ContactForm />
             </div>
           </BlurFade>
@@ -120,7 +120,7 @@ export default function IletisimPage() {
         {/* Map */}
         <div className="mx-auto max-w-6xl mt-10">
           <BlurFade delay={0.3} inView>
-            <div className="rounded-lg overflow-hidden border border-border aspect-video">
+            <div className="rounded-2xl overflow-hidden border border-border aspect-video">
               <iframe
                 src={siteConfig.maps.embedUrl}
                 width="100%"

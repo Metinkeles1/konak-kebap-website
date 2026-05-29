@@ -7,7 +7,7 @@ export function BlogCard({ post, priority = false }: { post: BlogPost; priority?
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group block rounded-lg overflow-hidden border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-1"
+      className="group block rounded-xl overflow-hidden border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-1"
     >
       <div className="aspect-16/10 bg-linear-to-br from-gold-dim/30 via-ember/20 to-bg relative overflow-hidden">
         {post.coverImage && (
@@ -41,7 +41,7 @@ export function BlogCard({ post, priority = false }: { post: BlogPost; priority?
             </>
           )}
         </div>
-        <h3 className="font-display text-xl md:text-2xl text-cream group-hover:text-gold transition-colors mt-3 leading-tight">
+        <h3 className="font-display text-xl md:text-2xl text-foreground group-hover:text-gold transition-colors mt-3 leading-tight">
           {post.title}
         </h3>
         <p className="text-sm text-muted-foreground mt-3 line-clamp-3 leading-relaxed">

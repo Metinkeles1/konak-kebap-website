@@ -35,7 +35,7 @@ export function MenuCategories() {
                     <Icon className="w-7 h-7 text-gold" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-xl text-cream group-hover:text-gold transition-colors">
+                    <h3 className="font-display text-xl text-foreground group-hover:text-gold transition-colors">
                       {cat.name}
                     </h3>
                     <p className="text-xs text-muted-foreground mt-1">{cat.desc}</p>

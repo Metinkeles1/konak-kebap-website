@@ -81,7 +81,7 @@ export default async function MenuItemPage({ params }: PageProps) {
 
           <div className="grid gap-6 md:gap-10 md:grid-cols-2 mt-6 md:mt-10">
             {/* Image */}
-            <div className="relative aspect-square rounded-lg overflow-hidden border border-border bg-surface">
+            <div className="relative aspect-square rounded-2xl overflow-hidden border border-border bg-surface">
               {item.image ? (
                 <Image
                   src={item.image}
@@ -111,7 +111,7 @@ export default async function MenuItemPage({ params }: PageProps) {
             {/* Info */}
             <div>
               <p className="kicker mb-3">{item.category}</p>
-              <h1 className="font-display text-4xl md:text-5xl text-cream leading-tight">
+              <h1 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
                 {item.name}
               </h1>
               <div className="flex items-center gap-4 mt-6">
@@ -186,7 +186,7 @@ export default async function MenuItemPage({ params }: PageProps) {
           {/* Related */}
           {related.length > 0 && (
             <div className="mt-12 md:mt-20">
-              <h2 className="font-display text-2xl md:text-3xl text-cream mb-6 md:mb-8">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6 md:mb-8">
                 Benzer Lezzetler
               </h2>
               <div className="grid gap-4 md:grid-cols-3">
@@ -194,9 +194,9 @@ export default async function MenuItemPage({ params }: PageProps) {
                   <Link
                     key={rel.slug}
                     href={`/menu/${rel.slug}`}
-                    className="group p-5 rounded-lg border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-1"
+                    className="group p-5 rounded-xl border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-1"
                   >
-                    <h3 className="font-display text-lg text-cream group-hover:text-gold transition-colors">
+                    <h3 className="font-display text-xl text-foreground group-hover:text-gold transition-colors">
                       {rel.name}
                     </h3>
                     <p className="text-xs text-muted-foreground mt-2 line-clamp-2">{rel.desc}</p>

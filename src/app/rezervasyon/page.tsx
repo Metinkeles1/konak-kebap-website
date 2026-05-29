@@ -34,7 +34,7 @@ export default function RezervasyonPage() {
       <section className="section-head px-4 md:px-8">
         <div className="mx-auto max-w-3xl">
           <BlurFade inView>
-            <div className="p-6 md:p-10 rounded-lg border border-border bg-surface">
+            <div className="p-6 md:p-10 rounded-2xl border border-border bg-surface">
               <ReservationForm />
             </div>
           </BlurFade>

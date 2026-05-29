@@ -9,7 +9,7 @@ export function FAQ() {
   return (
     <section className="section px-4 md:px-8">
       <JsonLd data={getFAQSchema(faqs)} />
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-3xl">
         <SectionTitle
           kicker="Sıkça Sorulan Sorular"
           title="Merak Edilenler"
@@ -19,7 +19,7 @@ export function FAQ() {
           <Accordion className="mt-10">
             {faqs.map((faq, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border-border">
-                <AccordionTrigger className="text-left text-base md:text-lg font-display text-cream hover:text-gold hover:no-underline">
+                <AccordionTrigger className="text-left text-base md:text-lg font-display text-foreground hover:text-gold hover:no-underline">
                   {faq.q}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed text-base">

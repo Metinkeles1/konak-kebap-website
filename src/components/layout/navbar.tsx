@@ -48,7 +48,7 @@ export function Navbar() {
           <span className="text-[10px] md:text-xs tracking-[0.3em] text-gold uppercase">
             Efendi Usta
           </span>
-          <span className="font-display text-lg md:text-xl text-cream italic">
+          <span className="font-display text-lg md:text-xl text-foreground italic">
             Konak Kebap
           </span>
         </Link>
@@ -98,7 +98,7 @@ export function Navbar() {
                   <span className="text-[10px] tracking-[0.3em] text-gold uppercase">
                     Efendi Usta
                   </span>
-                  <span className="font-display text-lg text-cream italic">Konak Kebap</span>
+                  <span className="font-display text-lg text-foreground italic">Konak Kebap</span>
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}

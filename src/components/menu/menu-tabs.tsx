@@ -72,7 +72,7 @@ export function MenuTabs() {
               <BlurFade key={item.slug} delay={0.04 * (i % 4)} inView className="h-full">
               <Link
                 href={`/menu/${item.slug}`}
-                className="group flex h-full gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-0.5"
+                className="group flex h-full gap-3 sm:gap-4 p-2 sm:p-3 rounded-xl border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-0.5"
               >
                 {item.image ? (
                   <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-md overflow-hidden bg-linear-to-br from-gold-dim/30 via-ember/20 to-bg">
@@ -92,7 +92,7 @@ export function MenuTabs() {
                 )}
                 <div className="flex-1 min-w-0 py-1">
                   <div className="flex items-start gap-2">
-                    <h3 className="font-display text-xl text-cream group-hover:text-gold transition-colors">
+                    <h3 className="font-display text-xl text-foreground group-hover:text-gold transition-colors">
                       {item.name}
                     </h3>
                     {item.spicy && (
