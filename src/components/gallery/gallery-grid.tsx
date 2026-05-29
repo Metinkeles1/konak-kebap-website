@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { BlurFade } from '@/components/magicui/blur-fade';
-import { cn } from '@/lib/utils';
+import { getAllMenuItems } from '@/lib/menu';
 
 interface GalleryItem {
   alt: string;
@@ -13,14 +13,15 @@ interface GalleryItem {
   src: string;
 }
 
+// Yemekler sekmesi menü ürünlerinden otomatik dolar (içecekler hariç, görseli olanlar).
+const foodGallery: GalleryItem[] = getAllMenuItems().flatMap((item) =>
+  item.image && item.category !== 'İçecekler'
+    ? [{ alt: item.name, category: 'yemekler' as const, src: item.image }]
+    : []
+);
+
 const galleryItems: GalleryItem[] = [
-  // Yemekler
-  { alt: 'Adana Kebap', category: 'yemekler', src: '/images/menu/adana-kebap.jpg' },
-  { alt: 'Konak Kebap Spesiyali', category: 'yemekler', src: '/images/menu/konak-kebap-spesiyali.jpg' },
-  { alt: 'Lahmacun', category: 'yemekler', src: '/images/menu/lahmacun.jpg' },
-  { alt: 'Karışık Pide', category: 'yemekler', src: '/images/menu/karisik-pide.jpg' },
-  { alt: 'Karışık Kebap', category: 'yemekler', src: '/images/menu/karisik-kebap.jpg' },
-  { alt: 'Adana Dürüm', category: 'yemekler', src: '/images/menu/adana-durum.jpg' },
+  ...foodGallery,
   // Mekan
   { alt: 'İç Mekan', category: 'mekan', src: '/images/mekan/ic-mekan.jpg' },
   { alt: 'Restoran Atmosferi', category: 'mekan', src: '/images/mekan/restoran-atmosferi.jpg' },
@@ -38,27 +39,23 @@ export function GalleryGrid() {
   const renderTab = (category: GalleryItem['category']) => {
     const items = galleryItems.filter((i) => i.category === category);
     return (
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 mt-8 [column-fill:balance]">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 mt-8">
         {items.map((item, i) => (
-          <BlurFade key={`${category}-${i}`} delay={0.05 * i} inView>
+          <BlurFade key={`${category}-${i}`} delay={0.04 * (i % 8)} inView>
             <button
               type="button"
               onClick={() => setOpen(item)}
               aria-label={`${item.alt} - Efendi Usta Konak Kebap Sancaktepe`}
-              className={cn(
-                'group relative block w-full mb-4 rounded-lg overflow-hidden border border-border hover:border-gold/40 transition-all',
-                i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-3/4' : 'aspect-4/5'
-              )}
+              className="group relative block w-full aspect-4/5 rounded-lg overflow-hidden border border-border hover:border-gold/40 transition-all"
             >
               <Image
                 src={item.src}
                 alt={`${item.alt} - Efendi Usta Konak Kebap Sancaktepe`}
                 fill
-                priority={i === 0}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority={i < 8}
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-bg/30 group-hover:bg-bg/0 transition-colors pointer-events-none" />
               <div className="absolute bottom-0 inset-x-0 p-3 bg-linear-to-t from-bg/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <p className="text-cream text-sm font-display text-left">{item.alt}</p>
               </div>

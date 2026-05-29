@@ -6,6 +6,10 @@ export const siteConfig = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://konak-kebap-website.vercel.app').replace(/\/+$/, ''),
   ogImage: '/opengraph-image',
   rating: { value: 4.3, count: 68 },
+  // Diğer platform puanları (sayfa içi sosyal kanıt; schema'ya değil). Yeni platform eklemek için buraya ekle.
+  reviewPlatforms: [
+    { name: 'Trendyol Yemek', value: 4.5, count: 100 },
+  ],
   phone: '+905515322534',
   phoneDisplay: '0551 532 25 34',
   phoneSecondary: '+905365050161',

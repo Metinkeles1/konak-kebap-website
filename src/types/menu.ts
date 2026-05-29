@@ -10,6 +10,8 @@ export interface MenuItem {
   popular?: boolean;
   spicy?: boolean;
   prepTime?: string;
+  /** true ise ürün sitede hiçbir yerde görünmez (veri silinmeden gizlenir). */
+  hidden?: boolean;
 }
 
 export type CategoryName =

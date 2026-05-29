@@ -4,7 +4,7 @@ import { ArrowRight, Flame } from 'lucide-react';
 import { BlurFade } from '@/components/magicui/blur-fade';
 import { DishPlaceholder } from '@/components/shared/dish-placeholder';
 import { buttonVariants } from '@/components/ui/button';
-import { featuredItems, getMenuItemBySlug } from '@/lib/menu';
+import { featuredItems, getMenuItemBySlug, menuItemCountRounded } from '@/lib/menu';
 import { cn } from '@/lib/utils';
 
 export function FeaturedMenu() {
@@ -47,7 +47,7 @@ export function FeaturedMenu() {
                       src={item.image}
                       alt={`${item.name} - Efendi Usta Konak Kebap`}
                       fill
-                      priority={i === 0}
+                      priority={i < 4}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover will-change-transform group-hover:scale-105 transition-transform duration-700"
                     />
@@ -102,7 +102,7 @@ export function FeaturedMenu() {
               'bg-foreground text-bg hover:bg-gold px-8 py-6 text-base font-semibold gap-2'
             )}
           >
-            40+ Çeşit Menüyü İncele
+            {menuItemCountRounded}+ Çeşit Menüyü İncele
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

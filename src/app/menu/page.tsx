@@ -5,6 +5,7 @@ import { OrderPlatforms } from '@/components/sections/order-platforms';
 import { SectionTitle } from '@/components/shared/section-title';
 import { JsonLd } from '@/components/shared/json-ld';
 import { getFullMenuSchema } from '@/lib/schema';
+import { menuItemCountRounded } from '@/lib/menu';
 
 export const metadata: Metadata = {
   title: 'Menü — Kebap, Lahmacun, Pide Çeşitleri',
@@ -27,7 +28,7 @@ export default function MenuPage() {
             <SectionTitle
               kicker="Menümüz"
               title="Lezzetin Tam Listesi"
-              description="40+ çeşit ile damak çıtanıza uygun lezzetler. Kategorilere göre filtreleyin."
+              description={`${menuItemCountRounded}+ çeşit ile damak çıtanıza uygun lezzetler. Kategorilere göre filtreleyin.`}
             />
           </div>
         </div>

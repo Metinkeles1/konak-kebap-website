@@ -5,6 +5,7 @@ import { BlurFade } from '@/components/magicui/blur-fade';
 import { NumberTicker } from '@/components/magicui/number-ticker';
 import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/lib/site';
+import { menuItemCountRounded } from '@/lib/menu';
 import { cn } from '@/lib/utils';
 
 export function AboutSummary() {
@@ -60,7 +61,7 @@ export function AboutSummary() {
               <Flame className="w-7 h-7 text-gold" />
               <div>
                 <p className="font-display text-5xl md:text-6xl text-foreground font-semibold leading-none tracking-tight">
-                  <NumberTicker value={40} />+
+                  <NumberTicker value={menuItemCountRounded} />+
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
                   Çeşit menü — kebap, lahmacun, pide, dürüm ve dahası

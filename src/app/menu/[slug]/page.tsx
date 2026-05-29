@@ -9,7 +9,7 @@ import { JsonLd } from '@/components/shared/json-ld';
 import { buttonVariants } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { siteConfig } from '@/lib/site';
-import { getAllMenuItems, getMenuItemBySlug, menuData } from '@/lib/menu';
+import { getAllMenuItems, getMenuItemBySlug, visibleMenuData } from '@/lib/menu';
 import { getMenuItemSchema, getBreadcrumbSchema } from '@/lib/schema';
 import { cn } from '@/lib/utils';
 import type { CategoryName } from '@/types/menu';
@@ -47,7 +47,7 @@ export default async function MenuItemPage({ params }: PageProps) {
   if (!item) notFound();
 
   // Related: same category, exclude self, take 3
-  const related = (menuData[item.category as CategoryName] || [])
+  const related = (visibleMenuData[item.category as CategoryName] || [])
     .filter((i) => i.slug !== item.slug)
     .slice(0, 3);
 
@@ -69,7 +69,7 @@ export default async function MenuItemPage({ params }: PageProps) {
         ]}
       />
 
-      <article className="relative py-16 md:py-24 px-4 md:px-8">
+      <article className="relative pt-6 md:pt-10 pb-6 md:pb-12 px-4 md:px-8">
         <div className="mx-auto max-w-5xl">
           <Breadcrumbs
             items={[
@@ -79,7 +79,7 @@ export default async function MenuItemPage({ params }: PageProps) {
             ]}
           />
 
-          <div className="grid gap-10 md:grid-cols-2 mt-10">
+          <div className="grid gap-6 md:gap-10 md:grid-cols-2 mt-6 md:mt-10">
             {/* Image */}
             <div className="relative aspect-square rounded-lg overflow-hidden border border-border bg-surface">
               {item.image ? (
@@ -157,9 +157,9 @@ export default async function MenuItemPage({ params }: PageProps) {
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp&apos;tan Sipariş
                 </a>
-                {siteConfig.orderPlatforms.yemeksepeti && (
+                {siteConfig.orderPlatforms.trendyolYemek && (
                   <a
-                    href={siteConfig.orderPlatforms.yemeksepeti}
+                    href={siteConfig.orderPlatforms.trendyolYemek}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
@@ -167,7 +167,7 @@ export default async function MenuItemPage({ params }: PageProps) {
                       'border-gold/40 text-gold hover:bg-gold hover:text-bg flex-1'
                     )}
                   >
-                    Yemeksepeti
+                    Trendyol&apos;dan Sipariş
                   </a>
                 )}
               </div>
@@ -185,8 +185,8 @@ export default async function MenuItemPage({ params }: PageProps) {
 
           {/* Related */}
           {related.length > 0 && (
-            <div className="mt-20">
-              <h2 className="font-display text-2xl md:text-3xl text-cream mb-8">
+            <div className="mt-12 md:mt-20">
+              <h2 className="font-display text-2xl md:text-3xl text-cream mb-6 md:mb-8">
                 Benzer Lezzetler
               </h2>
               <div className="grid gap-4 md:grid-cols-3">

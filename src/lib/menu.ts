@@ -1,4 +1,5 @@
 import type { MenuData, MenuItem } from '@/types/menu';
+import { productImages } from './menu-images';
 
 export const menuData: MenuData = {
   'Çorbalar': [
@@ -16,16 +17,16 @@ export const menuData: MenuData = {
       longDesc:
         "Adana yöresine özgü tariflerle, günlük taze kuzu kıyması ve özel baharat karışımıyla şiş üzerinde hazırlanan, közde pişirilen geleneksel Adana kebabı. Sancaktepe Yenidoğan'da en otantik lezzetiyle servis ediyoruz.",
       ingredients: ['Kuzu kıyma', 'Özel baharat', 'Kuyruk yağı', 'Pul biber'],
-      image: '/images/menu/adana-kebap.jpg',
+      image: '/images/menu/adana-kebap.webp',
       spicy: true,
       popular: true,
       prepTime: '15-20 dk',
     },
-    { slug: 'urfa-kebap', name: 'Urfa Kebap', price: 400, desc: 'Sade ve lezzetli, baharatıyla öne çıkan Urfa kebap.', image: '/images/menu/urfa-kebap.jpg' },
+    { slug: 'urfa-kebap', name: 'Urfa Kebap', price: 400, desc: 'Sade ve lezzetli, baharatıyla öne çıkan Urfa kebap.', image: '/images/menu/urfa-kebap.webp' },
     { slug: 'sebzeli-kebap', name: 'Sebzeli Kebap', price: 400, desc: 'Izgara sebzelerle zenginleştirilmiş kebap.' },
     { slug: 'patlicanli-kebap', name: 'Patlıcanlı Kebap', price: 550, desc: 'Közlenmiş patlıcan üzerinde servis edilen özel kebap.' },
     { slug: 'domatesli-kebap', name: 'Domatesli Kebap', price: 500, desc: 'Taze domates sosuyla pişirilen geleneksel kebap.' },
-    { slug: 'karisik-kebap', name: 'Karışık Kebap', price: 1200, desc: 'Adana, urfa, tavuk şiş ve köfteden oluşan zengin tabak.', image: '/images/menu/karisik-kebap.jpg', popular: true },
+    { slug: 'karisik-kebap', name: 'Karışık Kebap', price: 1200, desc: 'Adana, urfa, tavuk şiş ve köfteden oluşan zengin tabak.', image: '/images/menu/karisik-kebap.webp', popular: true },
     { slug: 'beyti', name: 'Beyti', price: 500, desc: 'Lavaşa sarılı, domates soslu beyti kebap.' },
     { slug: 'firin-beyti', name: 'Fırın Beyti', price: 500, desc: 'Fırında pişirilmiş, yoğurtlu beyti kebap.' },
     { slug: 'kofte', name: 'Köfte', price: 500, desc: 'El yapımı, baharatlı ızgara köfte.' },
@@ -45,7 +46,7 @@ export const menuData: MenuData = {
       desc: "Efendi Usta'nın imza lezzeti — özel baharat karışımı, özel sunum.",
       longDesc:
         "Efendi Usta Konak Kebap'ın imza yemeği. Özel olarak hazırlanan baharat karışımı, seçili et kalitesi ve restoran tarzı sunumla, Sancaktepe'de tadına ancak burada varabileceğiniz benzersiz bir kebap deneyimi.",
-      image: '/images/menu/konak-kebap-spesiyali.jpg',
+      image: '/images/menu/konak-kebap-spesiyali.webp',
       badge: 'Şef Önerisi',
       popular: true,
       prepTime: '20-25 dk',
@@ -56,7 +57,7 @@ export const menuData: MenuData = {
     { slug: 'cigkofte-porsiyon', name: 'Çiğköfte Porsiyon', price: 200, desc: 'Acılı/acısız çiğköfte, limon ve nar ekşisiyle.' },
   ],
   'Dürümler': [
-    { slug: 'adana-durum', name: 'Adana Dürüm', price: 275, desc: 'İnce lavaşa sarılı Adana kebap dürüm.', image: '/images/menu/adana-durum.jpg', spicy: true },
+    { slug: 'adana-durum', name: 'Adana Dürüm', price: 275, desc: 'İnce lavaşa sarılı Adana kebap dürüm.', image: '/images/menu/adana-durum.webp', spicy: true },
     { slug: 'urfa-durum', name: 'Urfa Dürüm', price: 275, desc: 'İnce lavaşa sarılı Urfa kebap dürüm.' },
     { slug: 'tavuk-sis-durum', name: 'Tavuk Şiş Dürüm', price: 200, desc: 'Izgara tavuk şiş dürüm, sebzeli.' },
     { slug: 'et-sis-durum', name: 'Et Şiş Dürüm', price: 350, desc: 'Dana et şiş dürüm.' },
@@ -71,7 +72,6 @@ export const menuData: MenuData = {
       desc: 'El açması, ince hamurlu, baharatlı kıymalı geleneksel lahmacun.',
       longDesc:
         "El açması ince hamur, günlük taze kıyma, özel baharat karışımı ve taş fırın — Sancaktepe'de en otantik lahmacun deneyimi.",
-      image: '/images/menu/lahmacun.jpg',
       popular: true,
     },
     { slug: 'findik-lahmacun', name: 'Fındık Lahmacun', price: 50, desc: 'Küçük boy lahmacun, çocuklar ve hafif iştahlılar için.' },
@@ -84,7 +84,7 @@ export const menuData: MenuData = {
     { slug: 'kusbasi-kasarli-pide', name: 'Kuşbaşı Kaşarlı Pide', price: 350, desc: 'İri kuşbaşı et ve kaşar peyniri ile dolu pide.' },
     { slug: 'sucuklu-kasarli-pide', name: 'Sucuklu Kaşarlı Pide', price: 350, desc: 'Sucuk ve kaşar peyniri, kahvaltılık lezzet.' },
     { slug: 'kavurmali-kasarli-pide', name: 'Kavurmalı Kaşarlı Pide', price: 450, desc: 'Özel kavurma ve bol kaşarla zengin pide.' },
-    { slug: 'karisik-pide', name: 'Karışık Pide', price: 350, desc: 'Kıyma, kuşbaşı ve kaşarın bir arada olduğu doyurucu pide.', image: '/images/menu/karisik-pide.jpg', popular: true },
+    { slug: 'karisik-pide', name: 'Karışık Pide', price: 350, desc: 'Kıyma, kuşbaşı ve kaşarın bir arada olduğu doyurucu pide.', image: '/images/menu/karisik-pide.webp', popular: true },
     { slug: 'yumurta-ek', name: 'Yumurta (ek)', price: 30, desc: 'Herhangi bir pideye ek yumurta.' },
   ],
   'Kilo İşi': [
@@ -115,8 +115,31 @@ export const menuData: MenuData = {
   ],
 };
 
+// Ürün görsellerini isimle eşleyerek menüye uygula — yalnızca yerel görseli olmayanlara.
+// (Yerel jpg'ler 1600px yüksek çözünürlüklü; düşük çözünürlüklü webp ile ezmiyoruz.)
+for (const items of Object.values(menuData)) {
+  for (const item of items) {
+    if (!item.image) {
+      const image = productImages[item.name];
+      if (image) item.image = image;
+    }
+  }
+}
+
+// hidden: true olan ürünleri çıkar, boş kalan kategorileri de ele. Site her yerde bunu kullanır.
+export const visibleMenuData = Object.fromEntries(
+  Object.entries(menuData)
+    .map(([category, items]) => [category, items.filter((item) => !item.hidden)] as const)
+    .filter(([, items]) => items.length > 0)
+) as MenuData;
+
+// Menü çeşit sayısı — görünür ürünlerden türetilir (elle güncelleme yok).
+export const menuItemCount = Object.values(visibleMenuData).reduce((n, items) => n + items.length, 0);
+// Pazarlama metinleri için aşağı yuvarlanmış değer (ör. 64 → 60).
+export const menuItemCountRounded = Math.floor(menuItemCount / 10) * 10;
+
 export function getAllMenuItems(): Array<MenuItem & { category: string }> {
-  return Object.entries(menuData).flatMap(([category, items]) =>
+  return Object.entries(visibleMenuData).flatMap(([category, items]) =>
     items.map((item) => ({ ...item, category }))
   );
 }

@@ -1,5 +1,5 @@
 import { siteConfig } from './site';
-import { menuData } from './menu';
+import { visibleMenuData } from './menu';
 import type { MenuItem } from '@/types/menu';
 
 export function getRestaurantSchema(rating?: { value: number; count: number }) {
@@ -13,7 +13,7 @@ export function getRestaurantSchema(rating?: { value: number; count: number }) {
     logo: `${siteConfig.url}${siteConfig.ogImage}`,
     foundingDate: siteConfig.foundingDate,
     image: [
-      `${siteConfig.url}/images/menu/konak-kebap-spesiyali.jpg`,
+      `${siteConfig.url}/images/menu/konak-kebap-spesiyali.webp`,
       `${siteConfig.url}/images/mekan/ic-mekan.jpg`,
     ],
     priceRange: '₺₺',
@@ -79,7 +79,7 @@ export function getFullMenuSchema() {
     name: `${siteConfig.name} Menüsü`,
     url: `${siteConfig.url}/menu`,
     inLanguage: 'tr',
-    hasMenuSection: Object.entries(menuData).map(([category, items]) => ({
+    hasMenuSection: Object.entries(visibleMenuData).map(([category, items]) => ({
       '@type': 'MenuSection',
       name: category,
       hasMenuItem: items.map((item) => ({

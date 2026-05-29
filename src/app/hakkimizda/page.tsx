@@ -4,6 +4,7 @@ import { Breadcrumbs } from '@/components/shared/breadcrumbs';
 import { SectionTitle } from '@/components/shared/section-title';
 import { StatsBar } from '@/components/sections/stats-bar';
 import { BlurFade } from '@/components/magicui/blur-fade';
+import { menuItemCountRounded } from '@/lib/menu';
 
 export const metadata: Metadata = {
   title: 'Hakkımızda — Sancaktepe Yenidoğan',
@@ -23,7 +24,7 @@ const reasons = [
   },
   {
     title: 'Geniş Menü',
-    desc: '40+ çeşit: kebap, dürüm, lahmacun, pide, çorba, tatlı ve içecekler.',
+    desc: `${menuItemCountRounded}+ çeşit: kebap, dürüm, lahmacun, pide, çorba, tatlı ve içecekler.`,
   },
   {
     title: 'Kolay Ulaşım',

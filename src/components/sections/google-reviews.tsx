@@ -39,8 +39,22 @@ export async function GoogleReviews() {
         <SectionTitle
           kicker="Müşteri Yorumları"
           title="Ne Diyor Sancaktepelliler?"
-          description={`Google'da ${rating.toFixed(1)} ★ puan, ${total}+ değerlendirme — Google ve sipariş platformlarından yorumlar.`}
+          description="Google ve sipariş platformlarında binlerce mutlu müşteri."
         />
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          {[{ name: 'Google', value: rating, count: total }, ...siteConfig.reviewPlatforms].map((pf) => (
+            <div
+              key={pf.name}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2"
+            >
+              <Star className="w-4 h-4 fill-gold text-gold shrink-0" />
+              <span className="font-display text-lg text-cream leading-none">{pf.value.toFixed(1)}</span>
+              <span className="text-sm text-muted-foreground">
+                {pf.name} · {pf.count}+ yorum
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="mt-12 relative">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-background to-transparent z-10 pointer-events-none" />

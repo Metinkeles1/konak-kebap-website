@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Star } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/lib/site';
+import { menuItemCountRounded } from '@/lib/menu';
 import { cn } from '@/lib/utils';
 
 export function Hero() {
@@ -14,11 +15,11 @@ export function Hero() {
       {/* MOBILE — full-bleed background image with bottom-aligned content */}
       <section className="relative lg:hidden min-h-[calc(100svh-8rem)] flex items-end overflow-hidden bg-bg">
         <Image
-          src="/images/menu/konak-kebap-spesiyali.jpg"
-          alt="Konak Kebap Spesiyali - Efendi Usta Sancaktepe"
+          src="/images/menu/adana-kebap.webp"
+          alt="Adana Kebap - Efendi Usta Sancaktepe"
           fill
           priority
-          sizes="100vw"
+          sizes="(min-width: 1024px) 1px, 100vw"
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-linear-to-t from-bg via-bg/85 to-bg/20" />
@@ -80,7 +81,7 @@ export function Hero() {
             </div>
             <span className="h-8 w-px bg-border/60" />
             <div className="flex items-baseline gap-1.5">
-              <span className="font-display text-xl text-gold leading-none">20+</span>
+              <span className="font-display text-xl text-gold leading-none">{menuItemCountRounded}+</span>
               <span className="text-muted-foreground">Çeşit</span>
             </div>
           </motion.div>
@@ -217,11 +218,11 @@ export function Hero() {
             >
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface">
                 <Image
-                  src="/images/menu/konak-kebap-spesiyali.jpg"
-                  alt="Konak Kebap Spesiyali - Efendi Usta Sancaktepe"
+                  src="/images/menu/adana-kebap.webp"
+                  alt="Adana Kebap - Efendi Usta Sancaktepe"
                   fill
                   priority
-                  sizes="(max-width: 1280px) 40vw, 50vw"
+                  sizes="(max-width: 1024px) 1px, (max-width: 1280px) 40vw, 50vw"
                   className="object-cover"
                 />
                 {/* Photo badge overlay */}
@@ -244,7 +245,7 @@ export function Hero() {
                 className="absolute -left-8 -bottom-8 w-40 h-40 xl:w-48 xl:h-48 rounded-xl overflow-hidden border-4 border-bg shadow-xl"
               >
                 <Image
-                  src="/images/menu/lahmacun.jpg"
+                  src="/images/menu/lahmacun.webp"
                   alt="Lahmacun"
                   fill
                   sizes="160px"

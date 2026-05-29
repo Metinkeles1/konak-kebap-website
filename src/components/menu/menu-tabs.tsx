@@ -5,13 +5,15 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Flame } from 'lucide-react';
-import { menuData } from '@/lib/menu';
+import { visibleMenuData } from '@/lib/menu';
+import type { CategoryName } from '@/types/menu';
 import { DishPlaceholder } from '@/components/shared/dish-placeholder';
+import { BlurFade } from '@/components/magicui/blur-fade';
 import { cn } from '@/lib/utils';
 
-const categories = Object.keys(menuData) as Array<keyof typeof menuData>;
+const categories = Object.keys(visibleMenuData) as CategoryName[];
 
-const hashToCategory: Record<string, keyof typeof menuData> = {
+const hashToCategory: Record<string, CategoryName> = {
   corbalar: 'Çorbalar',
   kebaplar: 'Kebaplar',
   durumler: 'Dürümler',
@@ -22,16 +24,17 @@ const hashToCategory: Record<string, keyof typeof menuData> = {
   icecekler: 'İçecekler',
 };
 
-function getInitialCategory(): keyof typeof menuData {
+function getInitialCategory(): CategoryName {
   if (typeof window === 'undefined') return categories[0];
   const hash = window.location.hash.slice(1).toLowerCase();
-  return hashToCategory[hash] ?? categories[0];
+  const c = hashToCategory[hash];
+  return c && categories.includes(c) ? c : categories[0];
 }
 
 export function MenuTabs() {
-  const [active, setActive] = useState<keyof typeof menuData>(getInitialCategory);
+  const [active, setActive] = useState<CategoryName>(getInitialCategory);
 
-  const items = menuData[active];
+  const items = visibleMenuData[active] ?? [];
 
   return (
     <div>
@@ -58,18 +61,18 @@ export function MenuTabs() {
       <AnimatePresence mode="wait">
         <motion.div
           key={active}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.25 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
         >
           <h2 className="font-display text-3xl md:text-4xl text-gold mb-8">{active}</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {items.map((item, i) => (
+              <BlurFade key={item.slug} delay={0.04 * (i % 4)} inView className="h-full">
               <Link
-                key={item.slug}
                 href={`/menu/${item.slug}`}
-                className="group flex gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-0.5"
+                className="group flex h-full gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg border border-border bg-surface hover:border-gold/40 transition-all hover:-translate-y-0.5"
               >
                 {item.image ? (
                   <div className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-md overflow-hidden bg-linear-to-br from-gold-dim/30 via-ember/20 to-bg">
@@ -78,7 +81,7 @@ export function MenuTabs() {
                       alt={`${item.name} - Sancaktepe`}
                       fill
                       priority={i < 2}
-                      sizes="(max-width: 640px) 96px, 112px"
+                      sizes="(max-width: 640px) 240px, 280px"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -114,6 +117,7 @@ export function MenuTabs() {
                   <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-gold group-hover:translate-x-1 transition-all" />
                 </div>
               </Link>
+              </BlurFade>
             ))}
           </div>
         </motion.div>
