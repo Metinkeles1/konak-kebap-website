@@ -139,7 +139,8 @@ export function Hero() {
                 <span>Her gün açık</span>
               </motion.div>
 
-              <motion.h1
+              <motion.p
+                aria-hidden="true"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
@@ -150,7 +151,7 @@ export function Hero() {
                 en lezzetli
                 <br />
                 <span className="text-gold italic font-medium">kebabı.</span>
-              </motion.h1>
+              </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

@@ -27,6 +27,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const item = getMenuItemBySlug(slug);
   if (!item) return {};
 
+  const ogImage = item.image ?? siteConfig.ogImage;
+
   return {
     title: `${item.name} — Sancaktepe ${item.category}`,
     description: `${item.desc} Fiyat: ${item.price}₺. Sancaktepe Yenidoğan'da paket servis ve dine-in.`,
@@ -36,7 +38,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: `${item.name} | ${siteConfig.shortName}`,
       description: item.desc,
-      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: item.name }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: item.name }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${item.name} | ${siteConfig.shortName}`,
+      description: item.desc,
+      images: [ogImage],
     },
   };
 }

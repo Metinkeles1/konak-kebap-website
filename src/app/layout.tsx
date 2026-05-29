@@ -68,13 +68,10 @@ export const metadata: Metadata = {
   verification: {
     google: 'Hu6j37gZ3Ax7dQCh98M2z1Zo8D3-l3hSN_BI6taxBH8',
   },
-  icons: {
-    icon: '/favicon.ico',
-  },
 };
 
 export const viewport: Viewport = {
-  themeColor: '#B85C2E',
+  themeColor: '#C04A26',
   colorScheme: 'light',
   width: 'device-width',
   initialScale: 1,
