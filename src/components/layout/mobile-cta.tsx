@@ -3,7 +3,7 @@ import { siteConfig } from '@/lib/site';
 
 export function MobileCta() {
   return (
-    <div className="fixed bottom-0 inset-x-0 z-50 lg:hidden border-t border-border bg-background/95 backdrop-blur-sm px-3 pt-2.5 [padding-bottom:max(0.625rem,env(safe-area-inset-bottom))]">
+    <div className="fixed bottom-0 inset-x-0 z-50 lg:hidden border-t border-border bg-background px-3 pt-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]">
       <div className="flex gap-2">
         <a
           href={`tel:${siteConfig.phone}`}

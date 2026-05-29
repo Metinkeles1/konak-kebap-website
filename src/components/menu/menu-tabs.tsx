@@ -39,7 +39,7 @@ export function MenuTabs() {
   return (
     <div>
       {/* Sticky tab bar */}
-      <div className="sticky top-16 md:top-20 z-30 bg-background/95 backdrop-blur-sm border-b border-border -mx-4 md:-mx-8 px-4 md:px-8 py-3 md:py-4 mb-6 md:mb-8">
+      <div className="sticky top-16 md:top-20 z-30 bg-background border-b border-border -mx-4 md:-mx-8 px-4 md:px-8 py-3 md:py-4 mb-6 md:mb-8">
         <nav className="flex gap-2 overflow-x-auto scrollbar-none scroll-fade-x">
           {categories.map((cat) => (
             <button
