@@ -16,7 +16,7 @@ export function MobileCta() {
           href={siteConfig.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-[2] inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white py-3 text-sm font-semibold active:scale-[0.98] transition-transform"
+          className="flex-2 inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] text-white py-3 text-sm font-semibold active:scale-[0.98] transition-transform"
         >
           <MessageCircle className="w-4 h-4" />
           WhatsApp Sipariş
