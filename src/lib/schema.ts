@@ -115,6 +115,28 @@ export function getMenuItemSchema(item: MenuItem, category: string) {
   };
 }
 
+export function getBlogListSchema(
+  posts: Array<{ title: string; description: string; slug: string; publishedAt: string }>
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    '@id': `${siteConfig.url}/blog/#blog`,
+    name: `${siteConfig.shortName} Blog`,
+    description: 'Sancaktepe kebap kültürü, tarifler ve mutfak ipuçları.',
+    url: `${siteConfig.url}/blog`,
+    inLanguage: 'tr',
+    publisher: { '@id': `${siteConfig.url}/#restaurant` },
+    blogPost: posts.map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.description,
+      url: `${siteConfig.url}/blog/${post.slug}`,
+      datePublished: post.publishedAt,
+    })),
+  };
+}
+
 export function getBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
   return {
     '@context': 'https://schema.org',
@@ -145,6 +167,7 @@ export function getBlogPostingSchema(post: {
   description: string;
   slug: string;
   publishedAt: string;
+  updatedAt?: string;
   coverImage?: string;
 }) {
   return {
@@ -153,8 +176,9 @@ export function getBlogPostingSchema(post: {
     headline: post.title,
     description: post.description,
     url: `${siteConfig.url}/blog/${post.slug}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteConfig.url}/blog/${post.slug}` },
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
+    dateModified: post.updatedAt || post.publishedAt,
     image: post.coverImage ? `${siteConfig.url}${post.coverImage}` : `${siteConfig.url}${siteConfig.ogImage}`,
     author: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.url },
     publisher: {

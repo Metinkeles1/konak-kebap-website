@@ -3,12 +3,29 @@ import { Breadcrumbs } from '@/components/shared/breadcrumbs';
 import { SectionTitle } from '@/components/shared/section-title';
 import { BlogCard } from '@/components/blog/blog-card';
 import { BlurFade } from '@/components/magicui/blur-fade';
+import { JsonLd } from '@/components/shared/json-ld';
 import { getAllBlogPosts } from '@/lib/blog';
+import { getBlogListSchema } from '@/lib/schema';
+
+const title = 'Blog — Sancaktepe Kebap Rehberi';
+const description =
+  'Sancaktepe kebap kültürü, Adana-Urfa farkı, paket servis, konak kebap rehberi ve daha fazlası.';
 
 export const metadata: Metadata = {
-  title: 'Blog — Sancaktepe Kebap Rehberi',
-  description: 'Sancaktepe kebap kültürü, Adana-Urfa farkı, paket servis, konak kebap rehberi ve daha fazlası.',
+  title,
+  description,
   alternates: { canonical: '/blog' },
+  openGraph: {
+    title,
+    description,
+    url: '/blog',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 };
 
 export default function BlogPage() {
@@ -16,6 +33,7 @@ export default function BlogPage() {
 
   return (
     <>
+      <JsonLd data={getBlogListSchema(posts)} />
       <section className="relative page-header px-4 md:px-8 bg-grain border-b border-border">
         <div className="mx-auto max-w-360">
           <Breadcrumbs items={[{ name: 'Blog', href: '/blog' }]} />

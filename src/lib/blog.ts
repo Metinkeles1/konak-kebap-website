@@ -36,9 +36,11 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
     title: fm.title,
     description: fm.description,
     publishedAt: fm.publishedAt,
+    updatedAt: fm.updatedAt,
     coverImage: fm.coverImage,
     keywords: fm.keywords,
     relatedSlugs: fm.relatedSlugs,
+    faq: fm.faq,
     readingTime,
   };
 }

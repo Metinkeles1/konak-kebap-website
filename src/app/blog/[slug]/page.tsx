@@ -8,7 +8,7 @@ import { BlogCard } from '@/components/blog/blog-card';
 import { JsonLd } from '@/components/shared/json-ld';
 import { buttonVariants } from '@/components/ui/button';
 import { getAllBlogSlugs, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog';
-import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/schema';
+import { getBlogPostingSchema, getFAQSchema } from '@/lib/schema';
 import { siteConfig } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
@@ -28,15 +28,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post.title,
     description: post.description,
+    keywords: post.keywords,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
+      url: `${siteConfig.url}/blog/${post.slug}`,
       type: 'article',
       publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt || post.publishedAt,
       images: post.coverImage
         ? [{ url: post.coverImage, width: 1200, height: 630, alt: post.title }]
         : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: post.coverImage ? [post.coverImage] : undefined,
     },
   };
 }
@@ -60,13 +69,10 @@ export default async function BlogPostPage({ params }: PageProps) {
             description: post.description,
             slug: post.slug,
             publishedAt: post.publishedAt,
+            updatedAt: post.updatedAt,
             coverImage: post.coverImage,
           }),
-          getBreadcrumbSchema([
-            { name: 'Ana Sayfa', url: '/' },
-            { name: 'Blog', url: '/blog' },
-            { name: post.title, url: `/blog/${post.slug}` },
-          ]),
+          ...(post.faq && post.faq.length > 0 ? [getFAQSchema(post.faq)] : []),
         ]}
       />
 
@@ -114,6 +120,29 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="prose prose-invert max-w-none mt-4">
             <Content />
           </div>
+
+          {/* FAQ */}
+          {post.faq && post.faq.length > 0 && (
+            <div className="mt-16">
+              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-8">
+                Sıkça Sorulan Sorular
+              </h2>
+              <div className="space-y-4">
+                {post.faq.map((item) => (
+                  <details
+                    key={item.q}
+                    className="group rounded-xl border border-border bg-surface p-5"
+                  >
+                    <summary className="flex cursor-pointer items-center justify-between gap-4 font-medium text-foreground marker:content-['']">
+                      {item.q}
+                      <span className="text-gold transition-transform group-open:rotate-45">+</span>
+                    </summary>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* CTA */}
           <div className="mt-12 p-8 rounded-2xl border border-gold/30 bg-linear-to-br from-gold/5 to-transparent text-center">
