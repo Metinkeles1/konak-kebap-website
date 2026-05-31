@@ -233,8 +233,8 @@ export function Hero() {
                 </div>
                 <div className="absolute bottom-4 right-4 bg-foreground text-bg rounded-lg px-3 py-2 shadow-lg">
                   <p className="text-[10px] uppercase tracking-wider opacity-70">Şefin önerisi</p>
-                  <p className="font-display font-semibold text-lg leading-tight">Konak Kebap</p>
-                  <p className="text-sm opacity-90">750 ₺</p>
+                  <p className="font-display font-semibold text-lg leading-tight">Adana Kebap</p>
+                  <p className="text-sm opacity-90">400 ₺</p>
                 </div>
               </div>
 
