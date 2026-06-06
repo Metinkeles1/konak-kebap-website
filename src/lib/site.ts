@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: 'Konak Kebap',
   description:
     "Sancaktepe Yenidoğan'ın en lezzetli kebap adresi. Konak kebap, Adana dürüm, el açması lahmacun ve pide çeşitleri.",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://konak-kebap-website.vercel.app').replace(/\/+$/, ''),
+  url: (process.env.NEXT_PUBLIC_SITE_URL || 'https://konakkebap.com').replace(/\/+$/, ''),
   ogImage: '/opengraph-image',
   rating: { value: 4.3, count: 68 },
   // Diğer platform puanları (sayfa içi sosyal kanıt; schema'ya değil). Yeni platform eklemek için buraya ekle.
