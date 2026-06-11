@@ -29,7 +29,7 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-1">
             <div className="flex flex-col leading-none mb-4">
-              <span className="text-xs tracking-[0.3em] text-gold uppercase">Efendi Usta</span>
+              <span className="text-xs tracking-[0.3em] text-gold-dim uppercase">Efendi Usta</span>
               <span className="font-display text-2xl text-foreground italic">Konak Kebap</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">

@@ -44,7 +44,7 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-360 px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none" aria-label="Ana Sayfa">
+        <Link href="/" className="flex flex-col leading-none">
           <span className="text-[10px] md:text-xs tracking-[0.3em] text-gold uppercase">
             Efendi Usta
           </span>

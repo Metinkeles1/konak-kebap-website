@@ -164,7 +164,8 @@
   font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--gold);
+  /* gold-dim: küçük metinde WCAG AA için (gold ~4.26:1, gold-dim ~8:1) */
+  color: var(--gold-dim);
   font-weight: 600;
 }
 
