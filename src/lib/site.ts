@@ -74,6 +74,10 @@ export const siteConfig = {
     'sancaktepe paket servis',
     'sancaktepe yenidoğan kebap',
     'sancaktepe en iyi kebap',
+    'sancaktepe aile salonu',
+    'aile salonu olan kebapçı sancaktepe',
+    'yenidoğan aileye uygun restoran',
+    'sancaktepe çocuklu gidilecek mekan',
   ],
 } as const;
 

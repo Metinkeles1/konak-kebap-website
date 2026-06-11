@@ -26,8 +26,10 @@ export function getRestaurantSchema(rating?: { value: number; count: number }) {
       'Ücretsiz Wi-Fi',
       'Ücretsiz otopark',
       'Helal yemek',
+      'Aile salonu',
       'Aileler için uygun',
       'Mama sandalyesi',
+      'Çocuk menüsü',
       'Paket servis',
     ].map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
     address: {

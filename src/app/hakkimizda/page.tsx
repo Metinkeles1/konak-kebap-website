@@ -27,6 +27,10 @@ const reasons = [
     desc: `${menuItemCountRounded}+ çeşit: kebap, dürüm, lahmacun, pide, çorba, tatlı ve içecekler.`,
   },
   {
+    title: 'Aile Salonu',
+    desc: 'Ferah aile salonu, geniş masalar, mama sandalyesi ve çocuk dostu seçeneklerle ailecek rahat bir ortam.',
+  },
+  {
     title: 'Kolay Ulaşım',
     desc: 'Sancaktar Caddesi üzerinde, ana yola yakın, park imkanı mevcut.',
   },
@@ -74,6 +78,12 @@ export default function HakkimizdaPage() {
                 burada varılabilecek bir lezzet sunar. Aile yemekleri, arkadaş buluşmaları ve özel
                 organizasyonlar için sıcak atmosferimiz ve samimi servisimizle hafta boyunca
                 hizmetinizdeyiz.
+              </p>
+              <p className="text-base md:text-lg text-foreground/90 leading-relaxed mt-6">
+                <strong className="text-gold">Aile salonumuzla</strong> Sancaktepe Yenidoğan&apos;da
+                çocuklu aileleri ağırlamaya özen gösteriyoruz. Geniş aile masaları, mama sandalyesi
+                ve çocukların sevdiği fındık lahmacun gibi seçeneklerle; ailecek gönül rahatlığıyla
+                yemek yiyebileceğiniz ferah bir ortam sunuyoruz.
               </p>
             </div>
           </BlurFade>

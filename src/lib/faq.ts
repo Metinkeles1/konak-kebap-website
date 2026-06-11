@@ -16,6 +16,10 @@ export const faqs = [
     a: 'Evet, düğün, nişan, doğum günü ve kurumsal etkinlikler için catering hizmeti sunuyoruz. Kilo işi menümüzü inceleyebilir, detaylar için bizi arayabilirsiniz.',
   },
   {
+    q: 'Aile salonunuz var mı, çocuklu gelinir mi?',
+    a: 'Evet, ferah aile salonumuzla çocuklu aileleri ağırlamaya uygunuz. Geniş aile masaları, mama sandalyesi ve çocukların sevdiği fındık lahmacun gibi seçeneklerimizle Sancaktepe Yenidoğan’da ailecek rahatça yemek yiyebileceğiniz bir ortam sunuyoruz.',
+  },
+  {
     q: 'Vegan veya vejetaryen seçenekleriniz var mı?',
     a: 'Sebzeli pide, sebzeli kebap, mercimek çorbası ve sebzeli dürüm gibi vejetaryen seçeneklerimiz bulunmaktadır.',
   },

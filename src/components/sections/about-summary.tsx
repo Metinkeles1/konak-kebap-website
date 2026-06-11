@@ -42,7 +42,7 @@ export function AboutSummary() {
                 <p className="text-bg/85 text-sm md:text-base mt-4 leading-relaxed max-w-lg">
                   Yenidoğan&apos;ın kalbinde, kısa sürede semtin en sevilen
                   kebap adresi haline geldik. Geleneksel tariflerle, ustanın
-                  elinden, dürüst fiyatlarla.
+                  elinden, dürüst fiyatlarla — ferah aile salonumuzda ailecek.
                 </p>
                 <Link
                   href="/hakkimizda"

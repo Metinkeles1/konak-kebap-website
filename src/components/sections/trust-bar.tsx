@@ -1,5 +1,5 @@
 import type React from 'react';
-import { Clock, MapPin, Phone, Truck, UtensilsCrossed } from 'lucide-react';
+import { Clock, MapPin, Phone, Truck, UtensilsCrossed, Users } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import { menuItemCountRounded } from '@/lib/menu';
 
@@ -17,6 +17,7 @@ export function TrustBar() {
     { icon: <Clock className="w-3.5 h-3.5 text-gold" />, label: 'Her gün açık' },
     { icon: <UtensilsCrossed className="w-3.5 h-3.5 text-gold" />, label: `${menuItemCountRounded}+ çeşit menü` },
     { icon: <MapPin className="w-3.5 h-3.5 text-gold" />, label: 'Sancaktepe Yenidoğan', hideMobile: true },
+    { icon: <Users className="w-3.5 h-3.5 text-gold" />, label: 'Aile salonu', hideMobile: true },
     { icon: <Truck className="w-3.5 h-3.5 text-gold" />, label: 'Paket servis', hideMobile: true },
     {
       icon: <Phone className="w-3.5 h-3.5 text-gold" />,
