@@ -1,55 +1,67 @@
 'use client';
 
-import { motion, useInView, type UseInViewOptions, type Variants } from 'framer-motion';
-import { useRef, type ReactNode } from 'react';
-
-type MarginType = UseInViewOptions['margin'];
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ReactNode,
+} from 'react';
 
 interface BlurFadeProps {
   children: ReactNode;
   className?: string;
-  variant?: { hidden: { y: number }; visible: { y: number } };
   duration?: number;
   delay?: number;
   yOffset?: number;
   inView?: boolean;
-  inViewMargin?: MarginType;
-  blur?: string;
+  inViewMargin?: string;
 }
 
+// framer-motion'suz hafif fade-up. IntersectionObserver + CSS transition;
+// API eskisiyle uyumlu (variant/blur kullanan cagiran yok).
 export function BlurFade({
   children,
   className,
-  variant,
   duration = 0.4,
   delay = 0,
   yOffset = 6,
   inView = false,
   inViewMargin = '-50px',
 }: BlurFadeProps) {
-  const ref = useRef(null);
-  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
-  const isInView = !inView || inViewResult;
-  const defaultVariants: Variants = {
-    hidden: { y: yOffset, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(!inView);
+
+  useEffect(() => {
+    if (!inView) {
+      setVisible(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: inViewMargin }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [inView, inViewMargin]);
+
+  const style: CSSProperties = {
+    opacity: visible ? 1 : 0,
+    transform: visible ? 'translateY(0)' : `translateY(${yOffset}px)`,
+    transition: `opacity ${duration}s ease-out, transform ${duration}s ease-out`,
+    transitionDelay: `${0.04 + delay}s`,
   };
-  const combinedVariants = variant || defaultVariants;
+
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
-      exit="hidden"
-      variants={combinedVariants}
-      transition={{
-        delay: 0.04 + delay,
-        duration,
-        ease: 'easeOut',
-      }}
-      className={className}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

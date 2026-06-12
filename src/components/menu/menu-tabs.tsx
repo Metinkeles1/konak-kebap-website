@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Flame } from 'lucide-react';
 import { visibleMenuData } from '@/lib/menu';
 import type { CategoryName } from '@/types/menu';
@@ -58,14 +57,7 @@ export function MenuTabs() {
         </nav>
       </div>
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div key={active} className="animate-fade-in">
           <h2 className="font-display text-3xl md:text-4xl text-gold mb-8">{active}</h2>
           <div className="grid gap-4 md:grid-cols-2">
             {items.map((item, i) => (
@@ -120,8 +112,7 @@ export function MenuTabs() {
               </BlurFade>
             ))}
           </div>
-        </motion.div>
-      </AnimatePresence>
+        </div>
     </div>
   );
 }

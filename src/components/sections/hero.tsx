@@ -1,8 +1,5 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Star } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/lib/site';
@@ -25,12 +22,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-linear-to-t from-bg via-bg/85 to-bg/20" />
 
         <div className="relative z-10 w-full px-4 pb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 bg-surface/80 backdrop-blur-sm border border-border rounded-full text-xs text-muted-foreground mb-5"
-          >
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-surface/80 backdrop-blur-sm border border-border rounded-full text-xs text-muted-foreground mb-5 animate-fade-up">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#2D7D5A] opacity-75 animate-ping" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2D7D5A]" />
@@ -38,36 +30,28 @@ export function Hero() {
             <span className="font-medium text-foreground">Şimdi açık</span>
             <span>·</span>
             <span>Her gün açık</span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-            className="font-display text-5xl sm:text-6xl leading-[0.95] tracking-tight text-foreground"
-          >
+          {/* LCP — animasyonsuz, aninda gorunur */}
+          <h1 className="font-display text-5xl sm:text-6xl leading-[0.95] tracking-tight text-foreground">
             Sancaktepe&apos;nin
             <br />
             en lezzetli
             <br />
             <span className="text-gold italic font-medium">kebabı.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
-            className="mt-5 text-base text-muted-foreground max-w-md leading-relaxed"
+          <p
+            className="mt-5 text-base text-muted-foreground max-w-md leading-relaxed animate-fade-up"
+            style={{ animationDelay: '0.15s' }}
           >
             Yenidoğan&apos;da, ocak başından sofranıza — günlük taze etlerle,
             el açması hamurla, ustanın elinden.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }}
-            className="mt-6 flex items-center gap-4 text-sm"
+          <div
+            className="mt-6 flex items-center gap-4 text-sm animate-fade-in"
+            style={{ animationDelay: '0.3s' }}
           >
             <div className="flex items-baseline gap-1.5">
               <span className="font-display text-xl text-gold leading-none">{siteConfig.rating.value}</span>
@@ -84,13 +68,11 @@ export function Hero() {
               <span className="font-display text-xl text-gold leading-none">{menuItemCountRounded}+</span>
               <span className="text-muted-foreground">Çeşit</span>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
-            className="mt-7 flex flex-col sm:flex-row gap-3"
+          <div
+            className="mt-7 flex flex-col sm:flex-row gap-3 animate-fade-up"
+            style={{ animationDelay: '0.25s' }}
           >
             <Link
               href="/menu"
@@ -114,7 +96,7 @@ export function Hero() {
               <MessageCircle className="w-4 h-4" />
               WhatsApp&apos;tan Sipariş
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -124,12 +106,7 @@ export function Hero() {
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
             {/* LEFT — Text & CTAs */}
             <div className="lg:col-span-7">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 bg-surface border border-border rounded-full text-xs text-muted-foreground mb-6"
-              >
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-surface border border-border rounded-full text-xs text-muted-foreground mb-6 animate-fade-up">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-[#2D7D5A] opacity-75 animate-ping" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2D7D5A]" />
@@ -137,13 +114,11 @@ export function Hero() {
                 <span className="font-medium text-foreground">Şimdi açık</span>
                 <span>·</span>
                 <span>Her gün açık</span>
-              </motion.div>
+              </div>
 
-              <motion.p
+              {/* LCP — animasyonsuz */}
+              <p
                 aria-hidden="true"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
                 className="font-display text-7xl xl:text-8xl leading-[0.95] tracking-tight text-foreground"
               >
                 Sancaktepe&apos;nin
@@ -151,23 +126,19 @@ export function Hero() {
                 en lezzetli
                 <br />
                 <span className="text-gold italic font-medium">kebabı.</span>
-              </motion.p>
+              </p>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
-                className="mt-8 text-lg text-muted-foreground max-w-lg leading-relaxed"
+              <p
+                className="mt-8 text-lg text-muted-foreground max-w-lg leading-relaxed animate-fade-up"
+                style={{ animationDelay: '0.15s' }}
               >
                 Yenidoğan&apos;da, ocak başından sofranıza — günlük taze etlerle,
                 el açması hamurla, ustanın elinden.
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
-                className="mt-10 flex flex-col sm:flex-row gap-3"
+              <div
+                className="mt-10 flex flex-col sm:flex-row gap-3 animate-fade-up"
+                style={{ animationDelay: '0.25s' }}
               >
                 <Link
                   href="/menu"
@@ -191,14 +162,12 @@ export function Hero() {
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp&apos;tan Sipariş
                 </a>
-              </motion.div>
+              </div>
 
               {/* Inline trust signals */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="mt-14 flex items-center gap-2 text-sm"
+              <div
+                className="mt-14 flex items-center gap-2 text-sm animate-fade-in"
+                style={{ animationDelay: '0.4s' }}
               >
                 <div className="flex gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -207,16 +176,11 @@ export function Hero() {
                 </div>
                 <span className="text-foreground font-medium">{siteConfig.rating.value}</span>
                 <span className="text-muted-foreground">· Google&apos;da {siteConfig.rating.count} değerlendirme</span>
-              </motion.div>
+              </div>
             </div>
 
-            {/* RIGHT — Big food photo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              className="lg:col-span-5 relative"
-            >
+            {/* RIGHT — Big food photo (LCP, animasyonsuz) */}
+            <div className="lg:col-span-5 relative">
               <div className="relative aspect-square rounded-2xl overflow-hidden bg-surface">
                 <Image
                   src="/images/menu/adana-kebap.webp"
@@ -239,11 +203,9 @@ export function Hero() {
               </div>
 
               {/* Floating accent — secondary small photo */}
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute -left-8 -bottom-8 w-40 h-40 xl:w-48 xl:h-48 rounded-xl overflow-hidden border-4 border-bg shadow-xl"
+              <div
+                className="absolute -left-8 -bottom-8 w-40 h-40 xl:w-48 xl:h-48 rounded-xl overflow-hidden border-4 border-bg shadow-xl animate-fade-up"
+                style={{ animationDelay: '0.4s' }}
               >
                 <Image
                   src="/images/menu/lahmacun.webp"
@@ -252,8 +214,8 @@ export function Hero() {
                   sizes="160px"
                   className="object-cover"
                 />
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
